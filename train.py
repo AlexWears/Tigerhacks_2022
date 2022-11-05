@@ -9,8 +9,8 @@ class Train(Vehicle):
 
         super().__init__(JimRs_Garage)
 
-        self.settings.speed_vert = 3
-        self.settings.speed_hor = 5
+        self.settings.speed_vert = self.settings.train_speed_vert
+        self.settings.speed_hor = self.settings.train_speed_hor
 
     def blit_train(self):
 

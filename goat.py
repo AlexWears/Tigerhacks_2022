@@ -9,8 +9,8 @@ class Goat(Vehicle):
         
         super().__init__(JimRs_Garage)
         
-        self.settings.speed_vert = 3
-        self.settings.speed_hor = 5
+        self.settings.speed_vert = self.settings.goat_speed_vert
+        self.settings.speed_hor = self.settings.goat_speed_hor
 
     def blit_goat(self):
         
