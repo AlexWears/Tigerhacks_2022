@@ -26,6 +26,7 @@ class Settings:
     # Screen Settings
     
         self.bg_color = self.default_bg_color
+        self.shop_color = "red"
 
 
     # Vehicle Settings
