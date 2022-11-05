@@ -4,7 +4,9 @@ import requests
 class CryptoAPI:
     
     def __init__(self):
-        self.Connect  
+        self.Connect
+        self.GetDESO 
+
 
     def Connect():
         conn = http.client.HTTPSConnection("investing-cryptocurrency-markets.p.rapidapi.com")
@@ -50,3 +52,6 @@ class CryptoAPI:
         response = requests.request("GET", url, headers=headers, params=querystring)
 
         print(response.text)
+
+if __name__ == "__main__":
+    crypt = CryptoAPI()
