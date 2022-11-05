@@ -2,7 +2,7 @@ import sys
 import pygame
 import random
 
-class Grass_and_flowers(pygame.sprite.Sprite):
+class Grass(pygame.sprite.Sprite):
 
     def __init__(self, JimRs_Garage):
 
@@ -17,7 +17,7 @@ class Grass_and_flowers(pygame.sprite.Sprite):
         self.rect.bottomleft = (0,0)
 
         self.y = 0
-        self.x = random.randint(0, self.settings.width)
+        self.x = random.randint(0, self.settings.width - self.rect.width)
 
     def blit_grass(self):
 
@@ -27,5 +27,6 @@ class Grass_and_flowers(pygame.sprite.Sprite):
 
         self.y += self.settings.env_speed
         self.rect.y = self.y
+        self.rect.x = self.x
         self.blit_grass()
     
