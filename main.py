@@ -21,7 +21,7 @@ from rock import Rock
 from interactable.enemy import Enemy
 from BetterCryptoAPI import CryptoAPI
 from deso_price import DeSoPrice
-# from shop import Shop
+from shop import Shop
  
 class JimRs_Garage:
 
