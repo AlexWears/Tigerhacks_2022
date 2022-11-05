@@ -21,7 +21,7 @@ from rock import Rock
 from interactable.enemy import Enemy
 from BetterCryptoAPI import CryptoAPI
 from deso_price import DeSoPrice
-from shop import Shop
+# from shop import Shop
  
 class JimRs_Garage:
 
@@ -53,7 +53,7 @@ class JimRs_Garage:
         self.start_button = Button(self,"Start", 20, (0,0,0), 150, 75, (255,255,255), self.settings.width/2, self.settings.height/2) #init start button
 
         #init shop
-        self.shop = Shop(self)
+        # self.shop = Shop(self)
 
     def make_grass_and_flowers(self):
 
@@ -102,7 +102,7 @@ class JimRs_Garage:
             elif 12 <= (i % 18) < 14:
                 self.obstacles.add(Rock(self, "sprites/rock.bmp"))
             elif 15 <= (i % 18) < 17:
-                self.obstacles.add(CarObst(self, "sprites/biggerTree.bmp"))
+                self.obstacles.add(Tree(self, "sprites/biggerTree.bmp"))
 
         if (len(self.enemies) > 0):
             for i in range(0, len(self.enemies)):
