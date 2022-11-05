@@ -18,6 +18,8 @@ class JimRs_Garage:
         self.vehicle = Goat(self)
         self.grass = Grass_and_flowers(self)
 
+        self.coins = 0 #initialize player coin count
+
     def draw(self):
 
         self.screen.fill(self.settings.bg_color)
