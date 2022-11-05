@@ -23,6 +23,9 @@ from interactable.enemy import Enemy
 from BetterCryptoAPI import CryptoAPI
 from deso_price import DeSoPrice
 from shop import Shop
+from plane import Plane
+from train import Train
+from rocket import Rocket
  
 class JimRs_Garage:
 
@@ -39,19 +42,8 @@ class JimRs_Garage:
         self.clock = pygame.time.Clock()
 
     # Creates the sprites that we'll need
-        if(self.settings.v_type == 0):
-            self.vehicle = Goat(self)
-        elif(self.settings.v_type == 1):
-            self.vehicle = Goat(self)
-        elif(self.settings.v_type == 2):
-            self.vehicle = Train(self)
-        elif(self.settings.v_type == 3):
-            self.vehicle = Car(self)
-        elif(self.settings.v_type == 4):
-            self.vehicle = Plane(self)
-        elif(self.settings.v_type == 5):
-            self.vehicle = Rocket(self)
-        #self.vehicle = Goat(self)
+        
+        self.vehicle = Goat(self)
         self.grasses = pygame.sprite.Group()
         self.flowers = pygame.sprite.Group()
         self.deso = DeSoPrice(self)
@@ -156,7 +148,6 @@ class JimRs_Garage:
         if (len(self.enemies) > 0):
             for i in range(0, len(self.enemies)):
                 if self.vehicle.rect.colliderect(self.enemies[i]):
-                    #sys.exit()
                     self.settings.health -= 100
                     return
 
@@ -232,7 +223,20 @@ class JimRs_Garage:
             self.draw()
             self.collisions()
             if self.settings.health <= 0:
+                self.clear_screen()
                 self.shop.load()
+                if(self.settings.v_type == 0):
+                    self.vehicle = Goat(self)
+                elif(self.settings.v_type == 1):
+                    self.vehicle = Goat(self)
+                elif(self.settings.v_type == 2):
+                    self.vehicle = Train(self)
+                elif(self.settings.v_type == 3):
+                    self.vehicle = Car(self)
+                elif(self.settings.v_type == 4):
+                    self.vehicle = Plane(self)
+                elif(self.settings.v_type == 5):
+                    self.vehicle = Rocket(self)
             self.clock.tick(self.settings.frame_rate)
             self.settings.frame_count += 1
 

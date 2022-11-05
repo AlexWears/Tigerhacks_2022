@@ -68,23 +68,28 @@ class Shop:
         if(self.train_button.rect.collidepoint(mouse_pos)):
             self.settings.v_type = 2
             self.settings.health = 100
+            return
 
     def _check_car_button(self, mouse_pos):
         if(self.car_button.rect.collidepoint(mouse_pos)):
             self.settings.v_type = 3
             self.settings.health = 100
+            return
 
     def _check_plane_button(self, mouse_pos):
         if(self.plane_button.rect.collidepoint(mouse_pos)):
             self.settings.v_type = 4
             self.settings.health = 100
+            return
 
     def _check_rocket_button(self, mouse_pos):
         if(self.rocket_button.rect.collidepoint(mouse_pos)):
             self.settings.v_type = 5
             self.settings.health = 100
+            return
 
-        while self.settings.health == 0:
+    def load(self):
+        while self.settings.health <= 0:
             self.screen.fill(self.settings.shop_color)
 
             self.screen.blit(self.train_img, self.train_rect)
@@ -116,6 +121,19 @@ class Shop:
                     self._check_car_button(mouse_pos)
                     self._check_plane_button(mouse_pos)
                     self._check_rocket_button(mouse_pos)
+                
+                elif event.type == pygame.QUIT:
+                    sys.exit()
+
+                elif event.type == pygame.KEYDOWN:
+                    key = event.key
+                    if key == pygame.K_j:
+                        self.settings.v_type = 0
+                        self.settings.health = 100
+                        return
+                    elif key == pygame.K_ESCAPE:
+                        self.settings.v_type = 1
+                        self.settings.health = 100
                     
 
             pygame.display.flip()

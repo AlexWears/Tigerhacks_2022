@@ -8,8 +8,10 @@ class Goat(Vehicle):
     def __init__(self, JimRs_Garage):
         
         super().__init__(JimRs_Garage)
-
-        self.image = pygame.image.load("sprites/fancyGoat.bmp")
+        if self.settings.v_type == 1:
+            self.image = pygame.image.load("sprites/fancyGoat.bmp")
+        elif self.settings.v_type == 0:
+            self.image = pygame.image.load("sprites/goat.bmp")
         self.rect = self.image.get_rect()
         self.rect.bottomleft = (self.settings.width/2,self.settings.height/2)
 
