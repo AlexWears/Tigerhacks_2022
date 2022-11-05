@@ -7,6 +7,7 @@ from grass_and_flowers import Flower
 from road import Road
 from settings import Settings
 from goat import Goat
+from interactable.enemy import Enemy
 from BetterCryptoAPI import CryptoAPI
 from deso_price import DeSoPrice
 
@@ -30,6 +31,8 @@ class JimRs_Garage:
         self.flowers = pygame.sprite.Group()
         self.deso = DeSoPrice(self)
         self.road = Road(self)
+        self.enemies = []
+        #self.enemies.append(Enemy(self, self.vehicle))
 
         self.coins = 0 #initialize player coin count
         self.start_button = Button(self,"Start",30,20,20) #init start button
@@ -37,7 +40,7 @@ class JimRs_Garage:
     def make_grass_and_flowers(self):
 
     # Create a new grass every other frame
-        if self.settings.frame_count % 2 == 0:
+        if self.settings.frame_count % 4 == 0:
             new_grass = Grass(self)
             self.grasses.add(new_grass)
 
@@ -47,7 +50,7 @@ class JimRs_Garage:
                 self.grasses.remove(grass)
 
     # Create a new flower every five frames
-        if self.settings.frame_count % 5 == 0:
+        if self.settings.frame_count % 8 == 0:
             new_flower = Flower(self)
             self.flowers.add(new_flower)
 
@@ -72,6 +75,8 @@ class JimRs_Garage:
         self.screen.fill(self.settings.bg_color)
         self.make_grass_and_flowers()
         self.make_road()
+        for i in range(0, len(self.enemies)):
+            self.enemies[i].update()
         self.vehicle.update()
         self.deso.update()
 
