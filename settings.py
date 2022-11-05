@@ -55,3 +55,7 @@ class Settings:
         # Come back to this
         
         self.enemy_goat_speed = 5
+
+    # Shop Settings
+
+        self.deso_conv = 0
