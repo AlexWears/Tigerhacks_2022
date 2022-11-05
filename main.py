@@ -33,7 +33,19 @@ class JimRs_Garage:
         self.clock = pygame.time.Clock()
 
     # Creates the sprites that we'll need
-        self.vehicle = Goat(self)
+        if(self.settings.v_type == 0):
+            self.vehicle = Goat(self)
+        elif(self.settings.v_type == 1):
+            self.vehicle = Goat(self)
+        elif(self.settings.v_type == 2):
+            self.vehicle = Train(self)
+        elif(self.settings.v_type == 3):
+            self.vehicle = Car(self)
+        elif(self.settings.v_type == 4):
+            self.vehicle = Plane(self)
+        elif(self.settings.v_type == 5):
+            self.vehicle = Rocket(self)
+        #self.vehicle = Goat(self)
         self.grasses = pygame.sprite.Group()
         self.flowers = pygame.sprite.Group()
         self.deso = DeSoPrice(self)
