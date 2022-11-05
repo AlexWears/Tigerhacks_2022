@@ -13,5 +13,5 @@ class CryptoAPI:
         self.screen_rect = JimRs_Garage.screen
 
     def get_DeSo_price():
-        cryptocompare.get_price('DESO', currency='USD', full=False).pop("DESO").pop('USD')
+        return cryptocompare.get_price('DESO', currency='USD', full=False).pop("DESO").pop('USD')
 
