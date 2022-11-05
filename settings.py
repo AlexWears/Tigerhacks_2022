@@ -6,6 +6,9 @@ class Settings:
     def __init__(self):
 
     # Default settings to return to
+    # The resolution that we're using
+    # Width: 1500
+    # Height: 1000
 
         self.default_bg_color = (86,125,70)
         self.width = 750

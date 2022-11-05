@@ -41,8 +41,6 @@ class JimRs_Garage:
             if flower.rect.top > self.settings.height:
                 self.flowers.remove(flower)
 
-        print(len(self.flowers))
-
         self.grasses.update()
         self.flowers.update()
         
