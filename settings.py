@@ -15,8 +15,8 @@ class Settings:
         self.width = 1500
         self.height = 1000
 
-        self.goat_speed_vert = 5
-        self.goat_speed_hor = 3
+        self.goat_speed_vert = 8
+        self.goat_speed_hor = 6
 
         self.train_speed_vert = 3
         self.train_speed_hor = 3
@@ -51,3 +51,7 @@ class Settings:
         self.time_between_grass = 2
         self.frame_count = 0
         self.road_width = 0
+       # self.off_road_speed = -1
+        # Come back to this
+        
+        self.enemy_goat_speed = 5
