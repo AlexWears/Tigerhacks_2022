@@ -12,6 +12,8 @@ from settings import Settings
 from goat import Goat
 from obstacle import Obstacle
 from car_obst import CarObst
+from pot_hole import PotHole
+from tree import Tree
 from car import Car
 from interactable.enemy import Enemy
 from BetterCryptoAPI import CryptoAPI
@@ -42,8 +44,8 @@ class JimRs_Garage:
         # self.enemies.append(Enemy(self, self.vehicle))
         self.coins = pygame.sprite.Group()
         self.obstacles = pygame.sprite.Group()
-        self.car_obst = CarObst(self, "sprites/evilCar.bmp")
-        self.obstacles.add(self.car_obst)
+        self.obst = PotHole(self, "sprites/pothole.bmp")
+        self.obstacles.add(self.obst)
 
         self.coins = 0 #initialize player coin count
 
@@ -141,6 +143,14 @@ class JimRs_Garage:
     def _check_start_button(self, mouse_pos):
         if(self.start_button.rect.collidepoint(mouse_pos)):
             self.settings.game_start = True
+
+    def clear_screen(self):
+
+        self.grasses.empty()
+        self.flowers.empty()
+        self.enemies.empty()
+        self.obstacles.empty()
+        self.road.clear_road()
 
     def run_game(self):
 

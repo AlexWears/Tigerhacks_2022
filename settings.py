@@ -12,6 +12,7 @@ class Settings:
     # Height: 1000
 
         self.default_bg_color = (86,125,70)
+        self.default_obstacle_spawn_rate = 5
         self.width = 1500
         self.height = 1000
 
