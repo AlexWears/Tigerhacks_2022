@@ -1,5 +1,6 @@
 import sys
 import pygame
+from button import Button
 
 from grass_and_flowers import Grass
 from grass_and_flowers import Flower
@@ -89,11 +90,12 @@ class JimRs_Garage:
         # pygame.mixer.music.play(-1)
 
         while True:
-            
             self.get_input()
             self.draw()
             self.clock.tick(self.settings.frame_rate)
             self.settings.frame_count += 1
+            #self.start_button = Button(self,"Start",30,50,50)
+            #self.start_button.render()
 
 
 if __name__ == "__main__":
