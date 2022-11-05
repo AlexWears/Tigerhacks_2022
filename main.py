@@ -2,8 +2,6 @@ import sys
 import random
 import pygame
 
-sys.path.insert(0, "./interactable")
-
 from button import Button
 
 from grass_and_flowers import Grass
