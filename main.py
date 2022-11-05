@@ -5,6 +5,8 @@ from settings import Settings
 
 from goat import Goat
 
+from BetterCryptoAPI import CryptoAPI
+
 class JimRs_Garage:
 
     def __init__(self):
