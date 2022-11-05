@@ -17,6 +17,8 @@ class Shop:
         self.screen_rect = JimRs_Garage.screen
         self.coins = JimRs_Garage.coins
 
+        self.usd = self.coins * self.settings.deso_conv
+
         self.deso = DeSoPrice(self)
 
         self.train_img = pygame.image.load("sprites/train.bmp")
@@ -52,7 +54,6 @@ class Shop:
         self.plane_price_rect.center = (800, 500)
         self.plane_button = Button(self, "Buy", 30, self.text_color, 100, 50, self.button_color, 1000, 500)
 
-
         self.rocket_img = pygame.image.load("sprites/rocket.bmp")
         self.rocket_rect = self.rocket_img.get_rect()
         self.rocket_rect.center = (200, 700)
@@ -63,6 +64,14 @@ class Shop:
         self.rocket_price_rect = self.rocket_price.get_rect()
         self.rocket_price_rect.center = (800, 700)
         self.rocket_button = Button(self, "Buy", 30, self.text_color, 100, 50, self.button_color, 1000, 700)
+
+        self.coin_text = self.font.render(str(self.coins)+" DeSo", True, self.text_color)
+        self.coin_text_rect = self.coin_text.get_rect()
+        self.coin_text_rect.topright = (self.settings.width - 15, 10)
+
+        self.usd_text = self.font.render("$"+str(self.usd), True, self.text_color)
+        self.usd_text_rect = self.usd_text.get_rect()
+        self.usd_text_rect.topright = (self.settings.width - 15, 50)
 
     def _check_train_button(self, mouse_pos):
         if(self.train_button.rect.collidepoint(mouse_pos)):
@@ -90,6 +99,9 @@ class Shop:
 
     def load(self):
         while self.settings.health <= 0:
+
+            
+
             self.screen.fill(self.settings.shop_color)
 
             self.screen.blit(self.train_img, self.train_rect)
@@ -112,6 +124,9 @@ class Shop:
             self.plane_button.draw_button()
             self.rocket_button.draw_button()
 
+            self.screen.blit(self.coin_text, self.coin_text_rect)
+            self.screen.blit(self.usd_text, self.usd_text_rect)
+
             self.deso.update()
 
             for event in pygame.event.get():
@@ -131,6 +146,9 @@ class Shop:
                         self.settings.v_type = 0
                         self.settings.health = 100
                         return
+                    elif key == pygame.K_c:
+                        print(str(self.coins))
+
                     elif key == pygame.K_ESCAPE:
                         self.settings.v_type = 1
                         self.settings.health = 100
@@ -138,7 +156,7 @@ class Shop:
 
             pygame.display.flip()
 
-            #self.settings.health = 100
+            self.settings.health = 100
 
             
         
