@@ -16,6 +16,7 @@ from car import Car
 from interactable.enemy import Enemy
 from BetterCryptoAPI import CryptoAPI
 from deso_price import DeSoPrice
+from shop import Shop
 
 class JimRs_Garage:
 
@@ -47,6 +48,9 @@ class JimRs_Garage:
         self.coins = 0 #initialize player coin count
 
         self.start_button = Button(self,"Start", 20, (0,0,0), 150, 75, (255,255,255), self.settings.width/2, self.settings.height/2) #init start button
+
+        #init shop
+        self.shop = Shop(self)
 
     def make_grass_and_flowers(self):
 
@@ -158,6 +162,8 @@ class JimRs_Garage:
             self.get_input()
             self.draw()
             self.collisions()
+            if self.settings.health <= 0:
+                self.shop.load()
             self.clock.tick(self.settings.frame_rate)
             self.settings.frame_count += 1
 
