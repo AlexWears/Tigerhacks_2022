@@ -13,6 +13,7 @@ class Button:
         self.y_coord = y_coord
 
         self.font = pygame.font.SysFont("Arial", font)
+        self.text(text, "black")
 
     def text(self, text, color):
         self.text = self.font.render(text, 1, pygame.Color("White"))
