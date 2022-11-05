@@ -10,7 +10,7 @@ class CryptoAPI:
         conn = http.client.HTTPSConnection("investing-cryptocurrency-markets.p.rapidapi.com")
 
         headers = {
-            'X-RapidAPI-Key': "SIGN-UP-FOR-KEY",
+            'X-RapidAPI-Key': "6b5c5465cdmshd8abee944ee0443p13ee1bjsnafdbab7353a6",
             'X-RapidAPI-Host': "investing-cryptocurrency-markets.p.rapidapi.com"
             }
 
@@ -28,7 +28,7 @@ class CryptoAPI:
         querystring = {"string":"bit","time_utc_offset":"28800","lang_ID":"1"}
 
         headers = {
-	        "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
+	        "X-RapidAPI-Key": "6b5c5465cdmshd8abee944ee0443p13ee1bjsnafdbab7353a6",
 	        "X-RapidAPI-Host": "investing-cryptocurrency-markets.p.rapidapi.com"
         }
 
@@ -43,7 +43,7 @@ class CryptoAPI:
         querystring = {"pair_ID":"33","lang_ID":"1","time_utc_offset":"28800","range":"p"}
 
         headers = {
-	        "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
+	        "X-RapidAPI-Key": "6b5c5465cdmshd8abee944ee0443p13ee1bjsnafdbab7353a6",
 	        "X-RapidAPI-Host": "investing-cryptocurrency-markets.p.rapidapi.com"
         }
 
