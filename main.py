@@ -33,6 +33,8 @@ class JimRs_Garage:
         self.road = Road(self)
         self.enemies = []
         self.enemies.append(Enemy(self, self.vehicle))
+        self.coins = pygame.sprite.Group()
+        self.obstacles = pygame.sprite.Group()
 
         self.coins = 0 #initialize player coin count
         self.start_button = Button(self,"Start",30,20,20) #init start button
@@ -88,7 +90,8 @@ class JimRs_Garage:
             for i in range(0, len(self.enemies)):
                 if self.vehicle.rect.colliderect(self.enemies[i]):
                     sys.exit()
-                    
+        print(len(self.enemies))
+
 
     def get_input(self):
         
@@ -133,6 +136,7 @@ class JimRs_Garage:
         while True:
             self.get_input()
             self.draw()
+            self.collisions()
             self.clock.tick(self.settings.frame_rate)
             self.settings.frame_count += 1
 
