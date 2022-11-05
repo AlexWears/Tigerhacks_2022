@@ -8,6 +8,8 @@ class Settings:
     # Default settings to return to
 
         self.default_bg_color = (86,125,70)
+        self.width = 1500
+        self.height = 1000
 
     # Screen Settings
     
@@ -23,3 +25,7 @@ class Settings:
 
         self.speed_vert = 10
         self.speed_hor = 15
+
+    # Environment Settings
+
+        self.env_speed = 3

@@ -18,13 +18,13 @@ class Vehicle:
 
     def update(self):
 
-        if self.settings.moving_right == True:
+        if self.settings.moving_right and self.rect.right < self.settings.width:
             self.rect.x += self.settings.speed_hor
-        if self.settings.moving_left == True:
+        if self.settings.moving_left and self.rect.left > 0:
             self.rect.x -= self.settings.speed_hor
-        if self.settings.moving_down == True:
+        if self.settings.moving_down and self.rect.bottom < self.settings.height:
             self.rect.y += self.settings.speed_vert
-        if self.settings.moving_up == True:
+        if self.settings.moving_up and self.rect.top > 0:
             self.rect.y -= self.settings.speed_vert
     
         self.blit_vehicle()
