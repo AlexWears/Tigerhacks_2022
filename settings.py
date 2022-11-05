@@ -47,6 +47,8 @@ class Settings:
         self.speed_vert = 10
         self.speed_hor = 15
 
+        self.health = 100
+
     # Environment Settings
 
         self.env_speed = 5

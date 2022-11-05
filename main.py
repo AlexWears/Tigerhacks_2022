@@ -1,5 +1,8 @@
 import sys
 import pygame
+
+sys.path.insert(0, "./interactable")
+
 from button import Button
 
 from grass_and_flowers import Grass
@@ -7,6 +10,9 @@ from grass_and_flowers import Flower
 from road import Road
 from settings import Settings
 from goat import Goat
+from obstacle import Obstacle
+from car_obst import CarObst
+from car import Car
 from interactable.enemy import Enemy
 from BetterCryptoAPI import CryptoAPI
 from deso_price import DeSoPrice
@@ -36,11 +42,19 @@ class JimRs_Garage:
         self.enemies.append(Enemy(self, self.vehicle))
         self.coins = pygame.sprite.Group()
         self.obstacles = pygame.sprite.Group()
+<<<<<<< HEAD
         self.shop = Shop(self)
+=======
+        self.car_obst = CarObst(self, "sprites/evilCar.bmp")
+        self.obstacles.add(self.car_obst)
+>>>>>>> a0b2dae0e6170d3613b79154468a0935069048da
 
         self.coins = 0 #initialize player coin count
 
         self.start_button = Button(self,"Start", 20, (0,0,0), 150, 75, (255,255,255), self.settings.width/2, self.settings.height/2) #init start button
+
+        #init shop
+        self.shop = Shop(self)
 
     def make_grass_and_flowers(self):
 
@@ -82,6 +96,8 @@ class JimRs_Garage:
         self.make_road()
         for i in range(0, len(self.enemies)):
             self.enemies[i].update()
+        for i in self.obstacles:
+            i.update()
         self.vehicle.update()
         self.deso.update()
         self.start_button.draw_button()
@@ -93,8 +109,9 @@ class JimRs_Garage:
         if (len(self.enemies) > 0):
             for i in range(0, len(self.enemies)):
                 if self.vehicle.rect.colliderect(self.enemies[i]):
-                    sys.exit()
-        print(len(self.enemies))
+                    #sys.exit()
+                    self.settings.health -= 100
+                    return
 
 
     def get_input(self):
@@ -150,6 +167,8 @@ class JimRs_Garage:
             self.get_input()
             self.draw()
             self.collisions()
+            if self.settings.health <= 0:
+                self.shop.load()
             self.clock.tick(self.settings.frame_rate)
             self.settings.frame_count += 1
 

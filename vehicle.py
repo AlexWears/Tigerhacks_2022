@@ -9,6 +9,7 @@ class Vehicle:
         self.screen = JimRs_Garage.screen
         self.screen_rect = JimRs_Garage.screen.get_rect()
         self.image = pygame.image.load("sprites/thing.bmp")
+        self.health = self.settings.health
         
         self.rect = self.image.get_rect()
 
