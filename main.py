@@ -2,6 +2,7 @@ import sys
 import pygame
 
 from grass_and_flowers import Grass
+from grass_and_flowers import Flower
 from settings import Settings
 from goat import Goat
 from BetterCryptoAPI import CryptoAPI
@@ -18,12 +19,37 @@ class JimRs_Garage:
 
         self.vehicle = Goat(self)
         self.grasses = pygame.sprite.Group()
+        self.flowers = pygame.sprite.Group()
 
         self.coins = 0 #initialize player coin count
 
+    def make_grass_and_flowers(self):
+
+        if self.settings.frame_count % 2 == 0:
+            new_grass = Grass(self)
+            self.grasses.add(new_grass)
+
+        for grass in self.grasses.copy():
+            if grass.rect.top > self.settings.height:
+                self.grasses.remove(grass)
+
+        if self.settings.frame_count % 5 == 0:
+            new_flower = Flower(self)
+            self.flowers.add(new_flower)
+
+        for flower in self.flowers.copy():
+            if flower.rect.top > self.settings.height:
+                self.flowers.remove(flower)
+
+        print(len(self.flowers))
+
+        self.grasses.update()
+        self.flowers.update()
+        
+
     def draw(self):
         self.screen.fill(self.settings.bg_color)
-        self.grasses.update()
+        self.make_grass_and_flowers()
         self.vehicle.update()
         pygame.display.flip()
 
