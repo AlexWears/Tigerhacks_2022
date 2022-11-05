@@ -13,20 +13,24 @@ class Settings:
  
         self.default_bg_color = (86,125,70)
         self.default_obstacle_spawn_rate = 30
+        self.default_coin_spawn_rate = 250
         self.width = 1500
         self.height = 1000
 
         self.goat_speed_vert = 8
         self.goat_speed_hor = 6
 
-        self.train_speed_vert = 3
-        self.train_speed_hor = 3
+        self.train_speed_vert = 8
+        self.train_speed_hor = 6
 
-        self.car_speed_vert = 3
-        self.car_speed_hor = 3
+        self.car_speed_vert = 8
+        self.car_speed_hor = 6
 
-        self.plane_speed_vert = 3
-        self.plane_speed_hor = 3
+        self.plane_speed_vert = 8
+        self.plane_speed_hor = 6
+
+        self.rocket_speed_vert = 8
+        self.rocket_speed_hor = 6
 
         self.game_start = False
 
@@ -60,6 +64,7 @@ class Settings:
         
         self.enemy_goat_speed = 3
         self.obstacle_spawn_rate = self.default_obstacle_spawn_rate
+        self.coin_spawn_rate = self.default_coin_spawn_rate
 
     # Shop Settings
 
