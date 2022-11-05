@@ -85,6 +85,9 @@ class JimRs_Garage:
 
     def run_game(self):
 
+        # pygame.mixer.music.load('sounds/deftonestrack.wav')
+        # pygame.mixer.music.play(-1)
+
         while True:
             
             self.get_input()
