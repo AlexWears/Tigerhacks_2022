@@ -21,7 +21,7 @@ from rock import Rock
 from interactable.enemy import Enemy
 from BetterCryptoAPI import CryptoAPI
 from deso_price import DeSoPrice
-# from shop import Shop
+from shop import Shop
  
 class JimRs_Garage:
 
@@ -65,7 +65,7 @@ class JimRs_Garage:
         self.start_button = Button(self,"Start", 20, (0,0,0), 150, 75, (255,255,255), self.settings.width/2, self.settings.height/2) #init start button
 
         #init shop
-        # self.shop = Shop(self)
+        self.shop = Shop(self)
 
     def make_grass_and_flowers(self):
 
@@ -144,7 +144,6 @@ class JimRs_Garage:
         if (len(self.enemies) > 0):
             for i in range(0, len(self.enemies)):
                 if self.vehicle.rect.colliderect(self.enemies[i]):
-                    #sys.exit()
                     self.settings.health -= 100
                     return
 
@@ -216,6 +215,7 @@ class JimRs_Garage:
             self.draw()
             self.collisions()
             if self.settings.health <= 0:
+                self.clear_screen()
                 self.shop.load()
             self.clock.tick(self.settings.frame_rate)
             self.settings.frame_count += 1

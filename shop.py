@@ -5,7 +5,7 @@ from settings import Settings
 from button import Button
 from deso_price import DeSoPrice
 
-# class Shop:
+class Shop:
 
     def __init__(self, JimRs_Garage):
         self.text_color = (0,0,0)
@@ -68,23 +68,28 @@ from deso_price import DeSoPrice
         if(self.train_button.rect.collidepoint(mouse_pos)):
             self.settings.v_type = 2
             self.settings.health = 100
+            return
 
     def _check_car_button(self, mouse_pos):
         if(self.car_button.rect.collidepoint(mouse_pos)):
             self.settings.v_type = 3
             self.settings.health = 100
+            return
 
     def _check_plane_button(self, mouse_pos):
         if(self.plane_button.rect.collidepoint(mouse_pos)):
             self.settings.v_type = 4
             self.settings.health = 100
+            return
 
     def _check_rocket_button(self, mouse_pos):
         if(self.rocket_button.rect.collidepoint(mouse_pos)):
             self.settings.v_type = 5
             self.settings.health = 100
+            return
 
-        while self.settings.health == 0:
+    def load(self):
+        while self.settings.health <= 0:
             self.screen.fill(self.settings.shop_color)
 
             self.screen.blit(self.train_img, self.train_rect)
