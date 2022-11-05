@@ -8,6 +8,7 @@ from road import Road
 from settings import Settings
 from goat import Goat
 from BetterCryptoAPI import CryptoAPI
+from deso_price import DeSoPrice
 
 class JimRs_Garage:
 
@@ -27,6 +28,7 @@ class JimRs_Garage:
         self.vehicle = Goat(self)
         self.grasses = pygame.sprite.Group()
         self.flowers = pygame.sprite.Group()
+        self.deso = DeSoPrice(self)
         self.road = Road(self)
 
         self.coins = 0 #initialize player coin count
@@ -71,6 +73,8 @@ class JimRs_Garage:
         self.make_grass_and_flowers()
         self.make_road()
         self.vehicle.update()
+        self.deso.update()
+
         pygame.display.flip()
 
     def get_input(self):
