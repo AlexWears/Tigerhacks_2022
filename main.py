@@ -32,7 +32,7 @@ class JimRs_Garage:
         self.road = Road(self)
 
         self.coins = 0 #initialize player coin count
-        self.start_button = Button(self,"Start",30,500,500) #init start button
+        self.start_button = Button(self,"Start",30,20,20) #init start button
 
     def make_grass_and_flowers(self):
 

@@ -18,10 +18,11 @@ class Button:
 
     def text(self, text, color):
         self.text = self.font.render(text, 1, pygame.Color("White"))
+        self.text_rect = self.text.get_rect()
         self.size = self.text.get_size()
         self.surface = pygame.Surface(self.size)
         self.surface.fill(pygame.Color(color))
-        self.surface.blit(self.text, (0, 0))
+        self.surface.blit(self.text, self.text_rect)
         self.rect = pygame.Rect(self.x_coord, self.y_coord, self.size[0], self.size[1])
     
     def render(self):
