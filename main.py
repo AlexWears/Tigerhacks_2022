@@ -42,12 +42,8 @@ class JimRs_Garage:
         self.enemies.append(Enemy(self, self.vehicle))
         self.coins = pygame.sprite.Group()
         self.obstacles = pygame.sprite.Group()
-<<<<<<< HEAD
-        self.shop = Shop(self)
-=======
         self.car_obst = CarObst(self, "sprites/evilCar.bmp")
         self.obstacles.add(self.car_obst)
->>>>>>> a0b2dae0e6170d3613b79154468a0935069048da
 
         self.coins = 0 #initialize player coin count
 
