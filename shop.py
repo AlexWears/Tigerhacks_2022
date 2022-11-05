@@ -15,11 +15,11 @@ class Shop:
         self.settings = JimRs_Garage.settings
         self.screen = JimRs_Garage.screen
         self.screen_rect = JimRs_Garage.screen
-        self.coins = JimRs_Garage.coins
-
-        self.usd = self.coins * self.settings.deso_conv
+        self.usd = self.settings.coin_count * self.settings.deso_conv
 
         self.deso = DeSoPrice(self)
+
+    def _create_stuff(self):
 
         self.train_img = pygame.image.load("sprites/train.bmp")
         self.train_rect = self.train_img.get_rect()
@@ -65,39 +65,64 @@ class Shop:
         self.rocket_price_rect.center = (800, 700)
         self.rocket_button = Button(self, "Buy", 30, self.text_color, 100, 50, self.button_color, 1000, 700)
 
-        self.coin_text = self.font.render(str(self.coins)+" DeSo", True, self.text_color)
+        self.coin_text = self.font.render(str(self.settings.coin_count)+" DeSo", True, self.text_color)
         self.coin_text_rect = self.coin_text.get_rect()
         self.coin_text_rect.topright = (self.settings.width - 15, 10)
 
-        self.usd_text = self.font.render("$"+str(self.usd), True, self.text_color)
+        self.usd_text = self.font.render("$"+str(self.settings.coin_count * self.settings.deso_conv), True, self.text_color)
         self.usd_text_rect = self.usd_text.get_rect()
         self.usd_text_rect.topright = (self.settings.width - 15, 50)
 
     def _check_train_button(self, mouse_pos):
         if(self.train_button.rect.collidepoint(mouse_pos)):
-            self.settings.v_type = 2
+            if(self.usd >= self.settings.train_cost):
+                self.settings.v_type = 2
+                self.usd -= self.settings.train_cost
+                self.settings.coin_count -= self.settings.train_cost / self.settings.deso_conv
             self.settings.health = 100
+            self._reset_directions()
             return
 
     def _check_car_button(self, mouse_pos):
         if(self.car_button.rect.collidepoint(mouse_pos)):
-            self.settings.v_type = 3
+            if(self.usd >= self.settings.car_cost):
+                self.settings.v_type = 3
+                self.usd -= self.settings.car_cost
+                self.settings.coin_count -= self.settings.car_cost / self.settings.deso_conv
             self.settings.health = 100
+            self._reset_directions()
             return
 
     def _check_plane_button(self, mouse_pos):
         if(self.plane_button.rect.collidepoint(mouse_pos)):
-            self.settings.v_type = 4
+            if(self.usd >= self.settings.plane_cost):
+                self.settings.v_type = 4
+                self.usd -= self.settings.plane_cost
+                self.settings.coin_count -= self.settings.plane_cost / self.settings.deso_conv
             self.settings.health = 100
+            self._reset_directions()
             return
 
     def _check_rocket_button(self, mouse_pos):
         if(self.rocket_button.rect.collidepoint(mouse_pos)):
-            self.settings.v_type = 5
+            if(self.usd >= self.settings.plane_cost):
+                self.settings.v_type = 5
+                self.usd -= self.settings.plane_cost
+                self.settings.coin_count -= self.settings.plane_cost / self.settings.deso_conv
             self.settings.health = 100
+            self._reset_directions()
             return
 
-    def load(self):
+    def _reset_directions(self):
+        self.settings.moving_up = False
+        self.settings.moving_down = False
+        self.settings.moving_left = False
+        self.settings.moving_right = False
+
+    def load(self, JimRs_Garage):
+
+        self._create_stuff()
+        self.usd = self.settings.coin_count * self.settings.deso_conv
         while self.settings.health <= 0:
 
             
@@ -145,6 +170,7 @@ class Shop:
                     if key == pygame.K_j:
                         self.settings.v_type = 0
                         self.settings.health = 100
+                        self._reset_directions()
                         return
                     elif key == pygame.K_c:
                         print(str(self.coins))
@@ -152,6 +178,8 @@ class Shop:
                     elif key == pygame.K_ESCAPE:
                         self.settings.v_type = 1
                         self.settings.health = 100
+                        self._reset_directions()
+                        return 
                     
 
             pygame.display.flip()

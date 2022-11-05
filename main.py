@@ -159,7 +159,7 @@ class JimRs_Garage:
         if (len(self.coins) > 0):
             for i in self.coins.copy():
                 if self.vehicle.rect.colliderect(i):
-                    self.coinCount += 1
+                    self.settings.coin_count += 1
                     self.coins.remove(i)
 
     def get_input(self):
@@ -225,7 +225,7 @@ class JimRs_Garage:
             self.collisions()
             if self.settings.health <= 0:
                 self.clear_screen()
-                self.shop.load()
+                self.shop.load(self)
                 if(self.settings.v_type == 0):
                     self.vehicle = Goat(self)
                 elif(self.settings.v_type == 1):

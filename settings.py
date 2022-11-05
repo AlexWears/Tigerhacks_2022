@@ -54,6 +54,8 @@ class Settings:
 
         self.health = 100
 
+        self.coin_count = 0
+
     # Environment Settings
 
         self.env_speed = 5
@@ -71,7 +73,7 @@ class Settings:
         self.deso_conv = 0
         self.shop_color = (174, 176, 181)
 
-        self.train_cost = 0
-        self.car_cost = 0
-        self.plane_cost = 0
-        self.rocket_cost = 0
+        self.train_cost = 1
+        self.car_cost = 1
+        self.plane_cost = 1
+        self.rocket_cost = 1
