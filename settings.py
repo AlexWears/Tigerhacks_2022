@@ -38,7 +38,7 @@ class Settings:
 
     # Vehicle Settings
 
-        # self.v_type = 1
+        self.v_type = 1
 
         self.moving_up = False
         self.moving_down = False
@@ -65,3 +65,8 @@ class Settings:
 
         self.deso_conv = 0
         self.shop_color = (174, 176, 181)
+
+        self.train_cost = 0
+        self.car_cost = 0
+        self.plane_cost = 0
+        self.rocket_cost = 0
