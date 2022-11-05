@@ -42,7 +42,7 @@ class JimRs_Garage:
         # self.enemies.append(Enemy(self, self.vehicle))
         self.coins = pygame.sprite.Group()
         self.obstacles = pygame.sprite.Group()
-        self.car_obst = CarObst(self, "sprites/thing.bmp")
+        self.car_obst = CarObst(self, "sprites/evilCar.bmp")
         self.obstacles.add(self.car_obst)
 
         self.coins = 0 #initialize player coin count
@@ -106,7 +106,6 @@ class JimRs_Garage:
             for i in range(0, len(self.enemies)):
                 if self.vehicle.rect.colliderect(self.enemies[i]):
                     sys.exit()
-        print(len(self.enemies))
 
 
     def get_input(self):
