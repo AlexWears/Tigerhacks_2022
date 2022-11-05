@@ -40,10 +40,11 @@ class Enemy:
                 self.angle -= 180
             elif self.angle > 0:
                 self.angle += 180
+        elif self.rect.x == self.vehicle.rect.x:
+            self.rect.y += self.speed
     
         self.image_rotated = pygame.transform.rotate(self.image, self.angle)
         self.screen.blit(self.image_rotated, self.rect)
-        print(self.angle)
 
     def update(self):
 
