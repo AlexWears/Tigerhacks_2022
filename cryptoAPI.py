@@ -34,3 +34,17 @@ class CryptoAPI:
         response = requests.request("GET", url, headers=headers, params=querystring)
 
         print(response.text)
+
+    def GetChart():
+        url = "https://investing-cryptocurrency-markets.p.rapidapi.com/coins/get-brief-chart"
+
+        querystring = {"pair_ID":"33","lang_ID":"1","time_utc_offset":"28800","range":"p"}
+
+        headers = {
+	        "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
+	        "X-RapidAPI-Host": "investing-cryptocurrency-markets.p.rapidapi.com"
+        }
+
+        response = requests.request("GET", url, headers=headers, params=querystring)
+
+        print(response.text)
