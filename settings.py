@@ -51,7 +51,6 @@ class Settings:
         self.time_between_grass = 2
         self.frame_count = 0
         self.road_width = 0
-       # self.off_road_speed = -1
-        # Come back to this
+        self.road_left = 0
         
         self.enemy_goat_speed = 5
