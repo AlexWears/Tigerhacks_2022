@@ -11,8 +11,10 @@ from BetterCryptoAPI import CryptoAPI
 class JimRs_Garage:
 
     def __init__(self):
+    # Init method
         pygame.init()
 
+    # Creates settings, screen, screen rect, and pygame time
         self.settings = Settings()
         self.screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
         self.settings.height = self.screen.get_rect().height
@@ -20,6 +22,7 @@ class JimRs_Garage:
         pygame.display.set_caption("JimR's Garage")
         self.clock = pygame.time.Clock()
 
+    # Creates the sprites that we'll need
         self.vehicle = Goat(self)
         self.grasses = pygame.sprite.Group()
         self.flowers = pygame.sprite.Group()
@@ -29,30 +32,39 @@ class JimRs_Garage:
 
     def make_grass_and_flowers(self):
 
+    # Create a new grass every other frame
         if self.settings.frame_count % 2 == 0:
             new_grass = Grass(self)
             self.grasses.add(new_grass)
 
+    # Delete grass that's off of the screen
         for grass in self.grasses.copy():
             if grass.rect.top > self.settings.height:
                 self.grasses.remove(grass)
 
+    # Create a new flower every five frames
         if self.settings.frame_count % 5 == 0:
             new_flower = Flower(self)
             self.flowers.add(new_flower)
 
+    # Delete flowers that are off the screen
         for flower in self.flowers.copy():
             if flower.rect.top > self.settings.height:
                 self.flowers.remove(flower)
 
+    # Update grass and flower positions
         self.grasses.update()
         self.flowers.update()
+
+    # Make the road in the middle
 
     def make_road(self):
         self.road.update()
         
 
     def draw(self):
+
+    # Make screen background, make the grass, make the road, make the vehicle
         self.screen.fill(self.settings.bg_color)
         self.make_grass_and_flowers()
         self.make_road()
