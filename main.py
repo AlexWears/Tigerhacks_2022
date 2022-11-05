@@ -16,17 +16,20 @@ class JimRs_Garage:
 
         self.vehicle = Goat(self)
 
+    def draw(self):
+
+        self.screen.fill(self.settings.bg_color)
+        self.vehicle.blit_vehicle()
+        pygame.display.flip()
+
     def run_game(self):
 
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-        
-            self.screen.fill(self.settings.bg_color)
-            self.vehicle.blit_vehicle()
 
-            pygame.display.flip()
+            self.draw()
 
 
 if __name__ == "__main__":
