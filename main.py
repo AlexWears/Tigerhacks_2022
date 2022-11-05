@@ -10,6 +10,7 @@ from goat import Goat
 from interactable.enemy import Enemy
 from BetterCryptoAPI import CryptoAPI
 from deso_price import DeSoPrice
+from shop import Shop
 
 class JimRs_Garage:
 
@@ -35,6 +36,7 @@ class JimRs_Garage:
         self.enemies.append(Enemy(self, self.vehicle))
         self.coins = pygame.sprite.Group()
         self.obstacles = pygame.sprite.Group()
+        self.shop = Shop(self)
 
         self.coins = 0 #initialize player coin count
 
