@@ -5,7 +5,7 @@ from settings import Settings
 from button import Button
 from deso_price import DeSoPrice
 
-# class Shop:
+class Shop:
 
     def __init__(self, JimRs_Garage):
         self.text_color = (0,0,0)
