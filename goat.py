@@ -11,6 +11,8 @@ class Goat(Vehicle):
 
         self.image = pygame.image.load("sprites/goat.bmp")
         
+        self.image = pygame.image.load("sprites/goat.bmp")
+
         self.settings.speed_vert = self.settings.goat_speed_vert
         self.settings.speed_hor = self.settings.goat_speed_hor
 
