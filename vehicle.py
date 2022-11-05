@@ -16,3 +16,16 @@ class Vehicle:
 
     def blit_vehicle(self):
         self.screen.blit(self.image, self.rect)
+
+    def update(self):
+
+        if self.settings.moving_right == True:
+            self.rect.x += self.settings.speed_hor
+        if self.settings.moving_left == True:
+            self.rect.x -= self.settings.speed_hor
+        if self.settings.moving_down == True:
+            self.rect.y += self.settings.speed_vert
+        if self.settings.moving_up == True:
+            self.rect.y -= self.settings.speed_vert
+    
+        self.blit_vehicle()
