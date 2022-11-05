@@ -19,6 +19,8 @@ class JimRs_Garage:
         self.vehicle = Goat(self)
         self.grasses = pygame.sprite.Group()
 
+        self.coins = 0 #initialize player coin count
+
     def draw(self):
         self.screen.fill(self.settings.bg_color)
         self.grasses.update()
