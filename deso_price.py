@@ -24,12 +24,23 @@ class DeSoPrice():
         self.text_rect = self.text.get_rect()
         self.text_rect.bottomleft = (self.settings.width - self.text_rect.width - self.image.get_width() - 20, self.settings.height - 12.5)
 
+        #white box
+        self.height = 40
+        self.width = 100
+        self.box_rect = pygame.Rect(50,50, self.width, self.height)
+        #self.box_rect.midtop = JimRs_Garage.screen.get_rect().midtop
+        self.color = (255, 255, 255)
+        self.box_rect.bottomright = (self.settings.width - self.image.get_width() + 25, self.settings.height - 5)
+        #self.lines = pygame.sprite.Group()
+
 
         
 
     def blit_DeSo_price(self):
+        pygame.draw.rect(self.screen, self.color, self.box_rect)
         self.screen.blit(self.image, self.rect)
         self.screen.blit(self.text, self.text_rect)
+        
 
     def update(self):
         self.blit_DeSo_price()
