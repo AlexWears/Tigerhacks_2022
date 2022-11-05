@@ -10,9 +10,9 @@ class Settings:
     # The resolution that we're using:
     # Width: 1500
     # Height: 1000
-
+ 
         self.default_bg_color = (86,125,70)
-        self.default_obstacle_spawn_rate = 5
+        self.default_obstacle_spawn_rate = 30
         self.width = 1500
         self.height = 1000
 
@@ -38,7 +38,7 @@ class Settings:
 
     # Vehicle Settings
 
-        # self.v_type = 1
+        self.v_type = 1
 
         self.moving_up = False
         self.moving_down = False
@@ -58,9 +58,15 @@ class Settings:
         self.road_width = 0
         self.road_left = 0
         
-        self.enemy_goat_speed = 5
+        self.enemy_goat_speed = 3
+        self.obstacle_spawn_rate = self.default_obstacle_spawn_rate
 
     # Shop Settings
 
         self.deso_conv = 0
         self.shop_color = (174, 176, 181)
+
+        self.train_cost = 0
+        self.car_cost = 0
+        self.plane_cost = 0
+        self.rocket_cost = 0

@@ -1,4 +1,5 @@
 import sys
+import random
 import pygame
 
 sys.path.insert(0, "./interactable")
@@ -15,11 +16,13 @@ from car_obst import CarObst
 from pot_hole import PotHole
 from tree import Tree
 from car import Car
+from puddle import Puddle
+from rock import Rock
 from interactable.enemy import Enemy
 from BetterCryptoAPI import CryptoAPI
 from deso_price import DeSoPrice
-from shop import Shop
-
+# from shop import Shop
+ 
 class JimRs_Garage:
 
     def __init__(self):
@@ -35,7 +38,19 @@ class JimRs_Garage:
         self.clock = pygame.time.Clock()
 
     # Creates the sprites that we'll need
-        self.vehicle = Goat(self)
+        if(self.settings.v_type == 0):
+            self.vehicle = Goat(self)
+        elif(self.settings.v_type == 1):
+            self.vehicle = Goat(self)
+        elif(self.settings.v_type == 2):
+            self.vehicle = Train(self)
+        elif(self.settings.v_type == 3):
+            self.vehicle = Car(self)
+        elif(self.settings.v_type == 4):
+            self.vehicle = Plane(self)
+        elif(self.settings.v_type == 5):
+            self.vehicle = Rocket(self)
+        #self.vehicle = Goat(self)
         self.grasses = pygame.sprite.Group()
         self.flowers = pygame.sprite.Group()
         self.deso = DeSoPrice(self)
@@ -44,15 +59,13 @@ class JimRs_Garage:
         self.enemies.append(Enemy(self, self.vehicle))
         self.coins = pygame.sprite.Group()
         self.obstacles = pygame.sprite.Group()
-        self.obst = PotHole(self, "sprites/pothole.bmp")
-        self.obstacles.add(self.obst)
 
         self.coins = 0 #initialize player coin count
 
         self.start_button = Button(self,"Start", 20, (0,0,0), 150, 75, (255,255,255), self.settings.width/2, self.settings.height/2) #init start button
 
         #init shop
-        self.shop = Shop(self)
+        # self.shop = Shop(self)
 
     def make_grass_and_flowers(self):
 
@@ -84,6 +97,33 @@ class JimRs_Garage:
 
     def make_road(self):
         self.road.update()
+
+    def make_enemies_and_obstacles(self):
+        
+        if self.settings.frame_count % self.settings.obstacle_spawn_rate == 0:
+            i = random.randint(0, 20)
+
+            if 0 <= (i % 18) <= 2:
+                self.enemies.append(Enemy(self, self.vehicle))
+            elif 3 <= (i % 18) < 5:
+                self.obstacles.add(CarObst(self, "sprites/evilCar.bmp"))
+            elif 6 <= (i % 18) < 8:
+                self.obstacles.add(PotHole(self, "sprites/pothole.bmp"))
+            elif 9 <= (i % 18) < 11:
+                self.obstacles.add(Puddle(self, "sprites/puddle.bmp"))
+            elif 12 <= (i % 18) < 14:
+                self.obstacles.add(Rock(self, "sprites/rock.bmp"))
+            elif 15 <= (i % 18) < 17:
+                self.obstacles.add(Tree(self, "sprites/biggerTree.bmp"))
+
+        if (len(self.enemies) > 0):
+            for i in range(0, len(self.enemies)):
+                try:
+                    self.enemies[i].update()
+                except IndexError:
+                    print(len(self.enemies))
+        for i in self.obstacles:
+            i.update()
         
 
     def draw(self):
@@ -92,10 +132,7 @@ class JimRs_Garage:
         self.screen.fill(self.settings.bg_color)
         self.make_grass_and_flowers()
         self.make_road()
-        for i in range(0, len(self.enemies)):
-            self.enemies[i].update()
-        for i in self.obstacles:
-            i.update()
+        self.make_enemies_and_obstacles()
         self.vehicle.update()
         self.deso.update()
         self.start_button.draw_button()
@@ -110,6 +147,11 @@ class JimRs_Garage:
                     #sys.exit()
                     self.settings.health -= 100
                     return
+
+        if (len(self.obstacles) > 0):
+            for i in self.obstacles.copy():
+                if self.vehicle.rect.colliderect(i):
+                    self.obstacles.remove(i)
 
 
     def get_input(self):

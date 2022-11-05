@@ -2,7 +2,7 @@ import pygame
 import random
 from obstacle import Obstacle
 
-class Tree(Obstacle):
+class Puddle(Obstacle):
 
     def __init__(self, JimRs_Garage, image):
 
