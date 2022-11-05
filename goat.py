@@ -8,6 +8,8 @@ class Goat(Vehicle):
     def __init__(self, JimRs_Garage):
         
         super().__init__(JimRs_Garage)
+
+        self.image = pygame.image.load("sprites/goat.bmp")
         
         self.image = pygame.image.load("sprites/goat.bmp")
 
