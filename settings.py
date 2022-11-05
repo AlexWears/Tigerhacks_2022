@@ -8,8 +8,8 @@ class Settings:
     # Default settings to return to
 
         self.default_bg_color = (86,125,70)
-        self.width = 1500
-        self.height = 1000
+        self.width = 750
+        self.height = 500
 
         self.goat_speed_vert = 3
         self.goat_speed_hor = 3
@@ -29,6 +29,8 @@ class Settings:
 
 
     # Vehicle Settings
+
+        self.v_type = 1
 
         self.moving_up = False
         self.moving_down = False
