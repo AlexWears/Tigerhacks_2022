@@ -19,7 +19,7 @@ from car import Car
 from puddle import Puddle
 from rock import Rock
 from coin import Coin
-from interactable.enemy import Enemy
+from enemy import Enemy
 from BetterCryptoAPI import CryptoAPI
 from deso_price import DeSoPrice
 from shop import Shop

@@ -25,17 +25,25 @@ class Enemy:
 
 
     def blit_enemy(self):
-        if (self.rect.bottom < self.vehicle.rect.bottom):
-            self.calculate_angle()
-            if self.rect.x - self.vehicle.rect.x < -self.speed:
-                self.rect.x += self.speed
-            elif self.rect.x - self.vehicle.rect.x > self.speed:
-                self.rect.x -= self.speed
-            else:
-                self.rect.x -=  self.rect.x - self.vehicle.rect.x
+        self.calculate_angle()
 
+        
+        if self.rect.x - self.vehicle.rect.x < -self.speed:
+            self.rect.x += self.speed
+        elif self.rect.x - self.vehicle.rect.x > self.speed:
+            self.rect.x -= self.speed
+        else:
+            self.rect.x -=  self.rect.x - self.vehicle.rect.x
+
+        if not (self.rect.bottom < self.vehicle.rect.bottom):
+            if self.angle < 0:
+                self.angle -= 180
+            elif self.angle > 0:
+                self.angle += 180
+    
         self.image_rotated = pygame.transform.rotate(self.image, self.angle)
         self.screen.blit(self.image_rotated, self.rect)
+        print(self.angle)
 
     def update(self):
 
