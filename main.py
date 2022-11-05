@@ -3,6 +3,7 @@ import pygame
 
 from grass_and_flowers import Grass
 from grass_and_flowers import Flower
+from road import Road
 from settings import Settings
 from goat import Goat
 from BetterCryptoAPI import CryptoAPI
@@ -22,6 +23,7 @@ class JimRs_Garage:
         self.vehicle = Goat(self)
         self.grasses = pygame.sprite.Group()
         self.flowers = pygame.sprite.Group()
+        self.road = Road(self)
 
         self.coins = 0 #initialize player coin count
 
@@ -45,11 +47,15 @@ class JimRs_Garage:
 
         self.grasses.update()
         self.flowers.update()
+
+    def make_road(self):
+        self.road.update()
         
 
     def draw(self):
         self.screen.fill(self.settings.bg_color)
         self.make_grass_and_flowers()
+        self.make_road()
         self.vehicle.update()
         pygame.display.flip()
 
@@ -85,8 +91,8 @@ class JimRs_Garage:
 
     def run_game(self):
 
-        # pygame.mixer.music.load('sounds/deftonestrack.wav')
-        # pygame.mixer.music.play(-1)
+        pygame.mixer.music.load('sounds/goat_theme.ogg')
+        pygame.mixer.music.play(-1)
 
         while True:
             

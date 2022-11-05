@@ -47,6 +47,7 @@ class Settings:
 
     # Environment Settings
 
-        self.env_speed = 3
+        self.env_speed = 5
         self.time_between_grass = 2
         self.frame_count = 0
+        self.road_width = 0
