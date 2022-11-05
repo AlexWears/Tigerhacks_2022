@@ -192,7 +192,7 @@ class JimRs_Garage:
 
         self.grasses.empty()
         self.flowers.empty()
-        self.enemies.empty()
+        self.enemies.clear()
         self.obstacles.empty()
         self.road.clear_road()
 
