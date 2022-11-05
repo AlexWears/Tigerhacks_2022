@@ -1,12 +1,15 @@
 import sys
 import pygame
+from settings import Settings
 
 class JimRs_Garage:
 
     def __init__(self):
         pygame.init()
+        self.settings = Settings()
 
         self.screen = pygame.display.set_mode((1500,1000))
+
         pygame.display.set_caption("JimR's Garage")
 
     def run_game(self):
@@ -15,8 +18,9 @@ class JimRs_Garage:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
-            
-        pygame.display.flip()
+        
+            self.screen.fill(self.settings.bg_color)
+            pygame.display.flip()
 
 if __name__ == "__main__":
     game = JimRs_Garage()
