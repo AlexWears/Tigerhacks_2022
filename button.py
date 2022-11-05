@@ -20,7 +20,7 @@ class Button:
         self.text = self.font.render(text, 1, pygame.Color("White"))
         self.size = self.text.get_size()
         self.surface = pygame.Surface(self.size)
-        self.surface.fill(color)
+        self.surface.fill(pygame.Color(color))
         self.surface.blit(self.text, (0, 0))
         self.rect = pygame.Rect(self.x_coord, self.y_coord, self.size[0], self.size[1])
     
@@ -30,8 +30,10 @@ class Button:
     def click(self, mouse_click):
         mouse_x, mouse_y = pygame.mouse.get_pos()
         if mouse_click.type == pygame.MOUSEBUTTONDOWN:
-            if pygame.mouse.getpressed()[0]:
+            if pygame.mouse.get_pressed()[0]:
                 if self.rect.collidepoint(mouse_x, mouse_y):
                     self.text("","red")
+        else:
+            return False
 
 
