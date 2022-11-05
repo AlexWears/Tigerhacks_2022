@@ -1,5 +1,7 @@
 import sys
 import pygame
+from BetterCryptoAPI import CryptoAPI
+from settings import Settings
 
 class Shop:
 
@@ -11,6 +13,7 @@ class Shop:
 
     def load(self):
         self.screen.fill(self.settings.shop_color)
+        self.settings.deso_conv = CryptoAPI.get_DeSo_price()
 
     
 

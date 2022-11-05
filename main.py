@@ -1,5 +1,6 @@
 import sys
 import pygame
+from button import Button
 
 from grass_and_flowers import Grass
 from grass_and_flowers import Flower
@@ -8,6 +9,7 @@ from settings import Settings
 from goat import Goat
 from interactable.enemy import Enemy
 from BetterCryptoAPI import CryptoAPI
+from deso_price import DeSoPrice
 
 class JimRs_Garage:
 
@@ -27,11 +29,13 @@ class JimRs_Garage:
         self.vehicle = Goat(self)
         self.grasses = pygame.sprite.Group()
         self.flowers = pygame.sprite.Group()
+        self.deso = DeSoPrice(self)
         self.road = Road(self)
         self.enemies = []
         #self.enemies.append(Enemy(self, self.vehicle))
 
         self.coins = 0 #initialize player coin count
+        self.start_button = Button(self,"Start",30,500,500) #init start button
 
     def make_grass_and_flowers(self):
 
@@ -74,6 +78,8 @@ class JimRs_Garage:
         for i in range(0, len(self.enemies)):
             self.enemies[i].update()
         self.vehicle.update()
+        self.deso.update()
+
         pygame.display.flip()
 
     def get_input(self):
@@ -108,11 +114,15 @@ class JimRs_Garage:
 
     def run_game(self):
 
-        pygame.mixer.music.load('sounds/goat_theme.ogg')
-        pygame.mixer.music.play(-1)
+        #pygame.mixer.music.load('sounds/goat_theme.ogg')
+        #pygame.mixer.music.play(-1)
+
+        #Start menu
+        self.draw()
+        while self.start_button.click(pygame.event.poll()) == False:
+            self.start_button.render()
 
         while True:
-            
             self.get_input()
             self.draw()
             self.clock.tick(self.settings.frame_rate)
