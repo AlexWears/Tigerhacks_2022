@@ -10,6 +10,7 @@ class Rocket(Vehicle):
         super().__init__(JimRs_Garage)
 
         self.image = pygame.image.load("sprites/rocket.bmp")
+        self.rect = self.image.get_rect()
 
         self.settings.speed_vert = self.settings.rocket_speed_vert
         self.settings.speed_hor = self.settings.rocket_speed_hor
