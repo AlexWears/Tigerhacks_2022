@@ -27,6 +27,8 @@ class Settings:
         self.plane_speed_vert = 3
         self.plane_speed_hor = 3
 
+        self.game_start = False
+
     # Screen Settings
     
         self.bg_color = self.default_bg_color

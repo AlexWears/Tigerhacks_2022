@@ -35,7 +35,8 @@ class JimRs_Garage:
         #self.enemies.append(Enemy(self, self.vehicle))
 
         self.coins = 0 #initialize player coin count
-        self.start_button = Button(self,"Start",30,20,20) #init start button
+
+        self.start_button = Button(self,"Start", 20, (0,0,0), 150, 75, (255,255,255), self.settings.width/2, self.settings.height/2) #init start button
 
     def make_grass_and_flowers(self):
 
@@ -79,6 +80,7 @@ class JimRs_Garage:
             self.enemies[i].update()
         self.vehicle.update()
         self.deso.update()
+        self.start_button.draw_button()
 
         pygame.display.flip()
 
@@ -112,6 +114,10 @@ class JimRs_Garage:
                     elif key == pygame.K_RIGHT or key == pygame.K_d:
                         self.settings.moving_right = False
 
+    def _check_start_button(self, mouse_pos):
+        if(self.start_button.rect.collidepoint(mouse_pos)):
+            self.settings.game_start = True
+
     def run_game(self):
 
         #pygame.mixer.music.load('sounds/goat_theme.ogg')
@@ -119,10 +125,15 @@ class JimRs_Garage:
 
         #Start menu
         self.draw()
-        while self.start_button.click(pygame.event.poll()) == False:
-            self.start_button.render()
+        self.start_button.draw_button()
+        while self.settings.game_start == False:
+            for event in pygame.event.get():
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    mouse_pos = pygame.mouse.get_pos()
+                    self._check_start_button(mouse_pos)
+                    self.start_button.move_button()
 
-        while True:
+        while self.settings.game_start == True:
             self.get_input()
             self.draw()
             self.clock.tick(self.settings.frame_rate)

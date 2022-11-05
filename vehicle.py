@@ -40,6 +40,6 @@ class Vehicle:
         if self.rect.bottom < self.settings.height:
             self.rect.y += self.settings.env_speed
         
-        if 
+        #if 
     
         self.blit_vehicle()
