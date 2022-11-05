@@ -6,7 +6,8 @@ class Settings:
     def __init__(self):
 
     # Default settings to return to
-    # The resolution that we're using
+    
+    # The resolution that we're using:
     # Width: 1500
     # Height: 1000
 
