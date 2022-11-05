@@ -61,26 +61,26 @@ class JimRs_Garage:
 
                 elif event.type == pygame.KEYDOWN:
                     key = event.key
-                    if key == pygame.K_UP:
+                    if key == pygame.K_UP or key == pygame.K_w:
                         self.settings.moving_up = True
-                    elif key == pygame.K_DOWN:
+                    elif key == pygame.K_DOWN or key == pygame.K_s:
                         self.settings.moving_down = True
-                    elif key == pygame.K_LEFT:
+                    elif key == pygame.K_LEFT or key == pygame.K_a:
                         self.settings.moving_left = True
-                    elif key == pygame.K_RIGHT:
+                    elif key == pygame.K_RIGHT or key == pygame.K_d:
                         self.settings.moving_right = True
                     elif key == pygame.K_ESCAPE:
                         sys.exit()
 
                 elif event.type == pygame.KEYUP:
                     key = event.key
-                    if key == pygame.K_UP:
+                    if key == pygame.K_UP or key == pygame.K_w:
                         self.settings.moving_up = False
-                    elif key == pygame.K_DOWN:
+                    elif key == pygame.K_DOWN or key == pygame.K_s:
                         self.settings.moving_down = False
-                    elif key == pygame.K_LEFT:
+                    elif key == pygame.K_LEFT or key == pygame.K_a:
                         self.settings.moving_left = False
-                    elif key == pygame.K_RIGHT:
+                    elif key == pygame.K_RIGHT or key == pygame.K_d:
                         self.settings.moving_right = False
 
     def run_game(self):
