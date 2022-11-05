@@ -54,3 +54,7 @@ class Settings:
         self.road_left = 0
         
         self.enemy_goat_speed = 5
+
+    # Shop Settings
+
+        self.deso_conv = 0
