@@ -1,10 +1,11 @@
 import sys
 import pygame
+pygame.init()
 font = pygame.font.SysFont("Arial", 20)
 
 class Button:
 
-    def __init__(self, JimRs_Garage, text, x_coord, y_coord):
+    def __init__(self, JimRs_Garage, text, font_size, x_coord, y_coord):
         self.settings = JimRs_Garage.settings
         self.screen = JimRs_Garage.screen
         self.screen_rect = JimRs_Garage.screen.get_rect()
@@ -12,7 +13,7 @@ class Button:
         self.x_coord = x_coord
         self.y_coord = y_coord
 
-        self.font = pygame.font.SysFont("Arial", font)
+        self.font = pygame.font.SysFont("Arial", font_size)
         self.text(text, "black")
 
     def text(self, text, color):
