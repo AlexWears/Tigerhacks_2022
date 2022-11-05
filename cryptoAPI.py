@@ -3,8 +3,8 @@ import requests
 
 class CryptoAPI:
     
-    #def __init__(self):
-        
+    def __init__(self):
+        self.Connect  
 
     def Connect():
         conn = http.client.HTTPSConnection("investing-cryptocurrency-markets.p.rapidapi.com")
@@ -21,6 +21,7 @@ class CryptoAPI:
 
         print(data.decode("utf-8"))
     
+
     def GetDESO():
         url = "https://investing-cryptocurrency-markets.p.rapidapi.com/coins/search"
 
@@ -34,6 +35,7 @@ class CryptoAPI:
         response = requests.request("GET", url, headers=headers, params=querystring)
 
         print(response.text)
+
 
     def GetChart():
         url = "https://investing-cryptocurrency-markets.p.rapidapi.com/coins/get-brief-chart"
