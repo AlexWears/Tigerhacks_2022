@@ -2,8 +2,6 @@ import sys
 import random
 import pygame
 
-sys.path.insert(0, "./interactable")
-
 from button import Button
 
 from grass_and_flowers import Grass
@@ -19,7 +17,7 @@ from car import Car
 from puddle import Puddle
 from rock import Rock
 from coin import Coin
-from interactable.enemy import Enemy
+from enemy import Enemy
 from BetterCryptoAPI import CryptoAPI
 from deso_price import DeSoPrice
 from shop import Shop

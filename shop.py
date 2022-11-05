@@ -184,7 +184,7 @@ class Shop:
 
             pygame.display.flip()
 
-            #self.settings.health = 100
+            self.settings.health = 100
 
             
         
