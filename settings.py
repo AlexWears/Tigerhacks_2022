@@ -63,3 +63,4 @@ class Settings:
     # Shop Settings
 
         self.deso_conv = 0
+        self.shop_color = (174, 176, 181)

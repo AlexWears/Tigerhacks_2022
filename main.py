@@ -41,7 +41,7 @@ class JimRs_Garage:
         self.deso = DeSoPrice(self)
         self.road = Road(self)
         self.enemies = []
-        # self.enemies.append(Enemy(self, self.vehicle))
+        self.enemies.append(Enemy(self, self.vehicle))
         self.coins = pygame.sprite.Group()
         self.obstacles = pygame.sprite.Group()
         self.obst = PotHole(self, "sprites/pothole.bmp")
@@ -107,7 +107,9 @@ class JimRs_Garage:
         if (len(self.enemies) > 0):
             for i in range(0, len(self.enemies)):
                 if self.vehicle.rect.colliderect(self.enemies[i]):
-                    sys.exit()
+                    #sys.exit()
+                    self.settings.health -= 100
+                    return
 
 
     def get_input(self):
