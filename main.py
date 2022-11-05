@@ -108,8 +108,8 @@ class JimRs_Garage:
 
     def run_game(self):
 
-        pygame.mixer.music.load('sounds/goat_theme.ogg')
-        pygame.mixer.music.play(-1)
+        #pygame.mixer.music.load('sounds/goat_theme.ogg')
+        #pygame.mixer.music.play(-1)
 
         while True:
             self.get_input()

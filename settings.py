@@ -51,3 +51,7 @@ class Settings:
         self.time_between_grass = 2
         self.frame_count = 0
         self.road_width = 0
+
+    # Shop Settings
+
+        self.deso_conv = 0

@@ -7,19 +7,20 @@ class DeSoPrice():
 
     def __init__(self, JimRs_Garage):
 
-        self.price = str(CryptoAPI.get_DeSo_price())
+        
 
         self.font = pygame.font.SysFont("Comic Sans MS", 20)
 
         self.settings = JimRs_Garage.settings
         self.screen = JimRs_Garage.screen
         self.screen_rect = JimRs_Garage.screen.get_rect()
+        self.settings.deso_conv = CryptoAPI.get_DeSo_price()
 
         self.image = pygame.image.load("sprites/DeSo.bmp")
         self.rect = self.image.get_rect()
         self.rect.bottomleft = (self.settings.width - self.image.get_width() - 10, self.settings.height - 10)
 
-        self.text = self.font.render(self.price, True, (0,0,0))
+        self.text = self.font.render(str(self.settings.deso_conv), True, (0,0,0))
         self.text_rect = self.text.get_rect()
         self.text_rect.bottomleft = (self.settings.width - self.text_rect.width - self.image.get_width() - 20, self.settings.height - 12.5)
 
