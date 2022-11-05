@@ -11,6 +11,15 @@ class Settings:
         self.width = 1500
         self.height = 1000
 
+        self.goat_speed_vert = 3
+        self.goat_speed_hor = 3
+
+        self.train_speed_vert = 3
+        self.train_speed_hor = 3
+
+        self.car_speed_vert = 3
+        self.car_speed_hor = 3
+
     # Screen Settings
     
         self.bg_color = self.default_bg_color
