@@ -5,16 +5,16 @@ class Settings:
 
     def __init__(self):
 
-    # Default settings
+    # Default settings to return to
 
         self.default_bg_color = (86,125,70)
 
-    # Settings that will NOT change over the course of the game
-        
+    # Screen Settings
+    
         self.bg_color = self.default_bg_color
 
 
-    # Settings that will change over the course of the game
+    # Vehicle Settings
 
         self.moving_up = False
         self.moving_down = False

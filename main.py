@@ -38,6 +38,8 @@ class JimRs_Garage:
                         self.settings.moving_left = True
                     elif key == pygame.K_RIGHT:
                         self.settings.moving_right = True
+                    elif key == pygame.K_ESCAPE:
+                        sys.exit()
 
                 elif event.type == pygame.KEYUP:
                     key = event.key
