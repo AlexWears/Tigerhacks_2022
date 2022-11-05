@@ -12,7 +12,7 @@ class Enemy:
         self.screen = JimRs_Garage.screen
         self.vehicle = vehicle
 
-        self.image = pygame.image.load("sprites/goat.bmp")
+        self.image = pygame.image.load("sprites/evilGoat.bmp")
         self.rect = self.image.get_rect()
         self.rect.bottomleft = (0,0)
         # self.x = random.randint(0, self.settings.width - self.rect.width)

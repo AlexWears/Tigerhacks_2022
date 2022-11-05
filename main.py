@@ -77,12 +77,18 @@ class JimRs_Garage:
         self.make_road()
         for i in range(0, len(self.enemies)):
             self.enemies[i].update()
-            if self.vehicle.rect.colliderect(self.enemies[i]):
-                sys.exit()
         self.vehicle.update()
         self.deso.update()
 
         pygame.display.flip()
+
+    def collisions(self):
+
+        if (len(self.enemies) > 0):
+            for i in range(0, len(self.enemies)):
+                if self.vehicle.rect.colliderect(self.enemies[i]):
+                    sys.exit()
+                    
 
     def get_input(self):
         
