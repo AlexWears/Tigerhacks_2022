@@ -17,12 +17,13 @@ class JimRs_Garage:
         self.clock = pygame.time.Clock()
 
         self.vehicle = Goat(self)
-        self.grass = Grass(self)
+        self.grasses = pygame.sprite.Group()
+
+        self.coins = 0 #initialize player coin count
 
     def draw(self):
-
         self.screen.fill(self.settings.bg_color)
-        self.grass.update()
+        self.grasses.update()
         self.vehicle.update()
         pygame.display.flip()
 
@@ -63,6 +64,7 @@ class JimRs_Garage:
             self.get_input()
             self.draw()
             self.clock.tick(60)
+            self.settings.frame_count += 1
 
 
 if __name__ == "__main__":

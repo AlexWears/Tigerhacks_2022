@@ -29,4 +29,3 @@ class Grass(pygame.sprite.Sprite):
         self.rect.y = self.y
         self.rect.x = self.x
         self.blit_grass()
-    

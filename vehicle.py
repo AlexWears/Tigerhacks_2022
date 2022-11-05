@@ -8,8 +8,12 @@ class Vehicle:
         self.settings = JimRs_Garage.settings
         self.screen = JimRs_Garage.screen
         self.screen_rect = JimRs_Garage.screen.get_rect()
+<<<<<<< HEAD
         self.image = pygame.image.load("sprites/goat.bmp")
         
+=======
+        self.image = pygame.image.load("sprites/DeSo.bmp")
+>>>>>>> 1ea39aa56bfa8e76d6f6c526d31c90a72b36905f
         self.rect = self.image.get_rect()
 
         self.rect.bottomleft = (self.settings.width/2,self.settings.height/2)
