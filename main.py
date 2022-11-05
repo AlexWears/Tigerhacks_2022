@@ -32,7 +32,9 @@ class JimRs_Garage:
         self.deso = DeSoPrice(self)
         self.road = Road(self)
         self.enemies = []
-        #self.enemies.append(Enemy(self, self.vehicle))
+        self.enemies.append(Enemy(self, self.vehicle))
+        self.coins = pygame.sprite.Group()
+        self.obstacles = pygame.sprite.Group()
 
         self.coins = 0 #initialize player coin count
 
@@ -83,6 +85,15 @@ class JimRs_Garage:
         self.start_button.draw_button()
 
         pygame.display.flip()
+
+    def collisions(self):
+
+        if (len(self.enemies) > 0):
+            for i in range(0, len(self.enemies)):
+                if self.vehicle.rect.colliderect(self.enemies[i]):
+                    sys.exit()
+        print(len(self.enemies))
+
 
     def get_input(self):
         
@@ -136,6 +147,7 @@ class JimRs_Garage:
         while self.settings.game_start == True:
             self.get_input()
             self.draw()
+            self.collisions()
             self.clock.tick(self.settings.frame_rate)
             self.settings.frame_count += 1
 

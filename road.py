@@ -14,6 +14,7 @@ class Road:
         self.rect = pygame.Rect(0,0, self.width, self.height)
         self.rect.midtop = JimRs_Garage.screen.get_rect().midtop
         self.color = (55, 55, 55)
+        self.settings.road_left = self.rect.left
 
         self.lines = pygame.sprite.Group()
 
