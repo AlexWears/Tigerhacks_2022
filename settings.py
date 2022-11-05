@@ -41,3 +41,5 @@ class Settings:
     # Environment Settings
 
         self.env_speed = 3
+        self.time_between_grass = 2
+        self.frame_count = 0
