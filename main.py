@@ -13,7 +13,9 @@ class JimRs_Garage:
         pygame.init()
 
         self.settings = Settings()
-        self.screen = pygame.display.set_mode((self.settings.width,self.settings.height))
+        self.screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
+        self.settings.height = self.screen.get_rect().height
+        self.settings.width = self.screen.get_rect().width
         pygame.display.set_caption("JimR's Garage")
         self.clock = pygame.time.Clock()
 
