@@ -32,6 +32,7 @@ class JimRs_Garage:
         self.road = Road(self)
 
         self.coins = 0 #initialize player coin count
+        self.start_button = Button(self,"Start",30,500,500) #init start button
 
     def make_grass_and_flowers(self):
 
@@ -111,13 +112,16 @@ class JimRs_Garage:
         #pygame.mixer.music.load('sounds/goat_theme.ogg')
         #pygame.mixer.music.play(-1)
 
+        #Start menu
+        self.draw()
+        while self.start_button.click(pygame.event.poll()) == False:
+            self.start_button.render()
+
         while True:
             self.get_input()
             self.draw()
             self.clock.tick(self.settings.frame_rate)
             self.settings.frame_count += 1
-            #self.start_button = Button(self,"Start",30,50,50)
-            #self.start_button.render()
 
 
 if __name__ == "__main__":
