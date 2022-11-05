@@ -1,7 +1,7 @@
 import sys
 import pygame
 
-from grass_and_flowers import Grass_and_flowers
+from grass_and_flowers import Grass
 from settings import Settings
 from goat import Goat
 from BetterCryptoAPI import CryptoAPI
@@ -14,15 +14,16 @@ class JimRs_Garage:
         self.settings = Settings()
         self.screen = pygame.display.set_mode((1500,1000))
         pygame.display.set_caption("JimR's Garage")
+        self.clock = pygame.time.Clock()
 
         self.vehicle = Goat(self)
-        self.grass = Grass_and_flowers(self)
+        self.grass = Grass(self)
 
     def draw(self):
 
         self.screen.fill(self.settings.bg_color)
-        self.vehicle.update()
         self.grass.update()
+        self.vehicle.update()
         pygame.display.flip()
 
     def get_input(self):
@@ -61,6 +62,7 @@ class JimRs_Garage:
             
             self.get_input()
             self.draw()
+            self.clock.tick(60)
 
 
 if __name__ == "__main__":
