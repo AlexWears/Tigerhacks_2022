@@ -159,6 +159,7 @@ class JimRs_Garage:
         if (len(self.coins) > 0):
             for i in self.coins.copy():
                 if self.vehicle.rect.colliderect(i):
+                    self.coinCount += 1
                     self.coins.remove(i)
 
     def get_input(self):
