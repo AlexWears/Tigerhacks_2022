@@ -121,6 +121,19 @@ class Shop:
                     self._check_car_button(mouse_pos)
                     self._check_plane_button(mouse_pos)
                     self._check_rocket_button(mouse_pos)
+                
+                elif event.type == pygame.QUIT:
+                    sys.exit()
+
+                elif event.type == pygame.KEYDOWN:
+                    key = event.key
+                    if key == pygame.K_j:
+                        self.settings.v_type = 0
+                        self.settings.health = 100
+                        return
+                    elif key == pygame.K_ESCAPE:
+                        self.settings.v_type = 1
+                        self.settings.health = 100
                     
 
             pygame.display.flip()

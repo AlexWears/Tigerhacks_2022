@@ -19,14 +19,17 @@ class Settings:
         self.goat_speed_vert = 8
         self.goat_speed_hor = 6
 
-        self.train_speed_vert = 3
-        self.train_speed_hor = 3
+        self.train_speed_vert = 8
+        self.train_speed_hor = 6
 
-        self.car_speed_vert = 3
-        self.car_speed_hor = 3
+        self.car_speed_vert = 8
+        self.car_speed_hor = 6
 
-        self.plane_speed_vert = 3
-        self.plane_speed_hor = 3
+        self.plane_speed_vert = 8
+        self.plane_speed_hor = 6
+
+        self.rocket_speed_vert = 8
+        self.rocket_speed_hor = 6
 
         self.game_start = False
 
