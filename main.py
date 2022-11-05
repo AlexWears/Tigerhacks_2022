@@ -2,9 +2,7 @@ import sys
 import pygame
 
 from settings import Settings
-
 from goat import Goat
-
 from BetterCryptoAPI import CryptoAPI
 
 class JimRs_Garage:
@@ -63,5 +61,6 @@ class JimRs_Garage:
 
 
 if __name__ == "__main__":
+    deso_price = CryptoAPI.get_DeSo_price()
     game = JimRs_Garage()
     game.run_game()
