@@ -37,6 +37,11 @@ class Road:
         self.blit_road()
         self.lane_lines()
 
+    def clear_road(self):
+        self.lines.empty()
+        
+
+
 class Line(pygame.sprite.Sprite):
 
     def __init__(self, road):

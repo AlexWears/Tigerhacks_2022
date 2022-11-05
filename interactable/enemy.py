@@ -39,6 +39,9 @@ class Enemy:
 
     def update(self):
 
+        if (len(self.enemy_list) == 0):
+            return
+
         self.rect.y += self.settings.env_speed
         self.blit_enemy()
         

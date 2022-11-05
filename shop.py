@@ -5,7 +5,7 @@ from settings import Settings
 from button import Button
 from deso_price import DeSoPrice
 
-class Shop:
+# class Shop:
 
     def __init__(self, JimRs_Garage):
         self.text_color = (0,0,0)
@@ -83,11 +83,6 @@ class Shop:
         if(self.rocket_button.rect.collidepoint(mouse_pos)):
             self.settings.v_type = 5
             self.settings.health = 100
-
-
-    def load(self):
-        self.settings.deso_conv = CryptoAPI.get_DeSo_price()
-        #self.USD = self.settings.deso_conv * self.coins
 
         while self.settings.health == 0:
             self.screen.fill(self.settings.shop_color)
