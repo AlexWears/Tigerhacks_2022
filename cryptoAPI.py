@@ -1,4 +1,5 @@
 import http.client
+import requests
 
 class CryptoAPI:
     
@@ -20,10 +21,10 @@ class CryptoAPI:
 
         print(data.decode("utf-8"))
     
-    def Request():
-        url = "https://investing-cryptocurrency-markets.p.rapidapi.com/get-meta-data"
+    def GetDESO():
+        url = "https://investing-cryptocurrency-markets.p.rapidapi.com/coins/search"
 
-        querystring = {"locale_info":"en_US","lang_ID":"1","time_utc_offset":"28800"}
+        querystring = {"string":"bit","time_utc_offset":"28800","lang_ID":"1"}
 
         headers = {
 	        "X-RapidAPI-Key": "SIGN-UP-FOR-KEY",
