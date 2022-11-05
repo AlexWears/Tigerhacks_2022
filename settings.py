@@ -18,6 +18,9 @@ class Settings:
         self.car_speed_vert = 3
         self.car_speed_hor = 3
 
+        self.plane_speed_vert = 3
+        self.plane_speed_hor = 3
+
     # Screen Settings
     
         self.bg_color = self.default_bg_color
