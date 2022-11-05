@@ -10,9 +10,9 @@ class Settings:
     # The resolution that we're using:
     # Width: 1500
     # Height: 1000
-
+ 
         self.default_bg_color = (86,125,70)
-        self.default_obstacle_spawn_rate = 5
+        self.default_obstacle_spawn_rate = 30
         self.width = 1500
         self.height = 1000
 
@@ -58,7 +58,8 @@ class Settings:
         self.road_width = 0
         self.road_left = 0
         
-        self.enemy_goat_speed = 5
+        self.enemy_goat_speed = 3
+        self.obstacle_spawn_rate = self.default_obstacle_spawn_rate
 
     # Shop Settings
 
