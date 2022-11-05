@@ -9,9 +9,9 @@ class Goat(Vehicle):
         
         super().__init__(JimRs_Garage)
 
-        self.image = pygame.image.load("sprites/goat.bmp")
-        
-        self.image = pygame.image.load("sprites/goat.bmp")
+        self.image = pygame.image.load("sprites/fancyGoat.bmp")
+        self.rect = self.image.get_rect()
+        self.rect.bottomleft = (self.settings.width/2,self.settings.height/2)
 
         self.settings.speed_vert = self.settings.goat_speed_vert
         self.settings.speed_hor = self.settings.goat_speed_hor

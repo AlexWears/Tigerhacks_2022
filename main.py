@@ -1,5 +1,8 @@
 import sys
 import pygame
+
+sys.path.insert(0, "./interactable")
+
 from button import Button
 
 from grass_and_flowers import Grass
@@ -7,6 +10,9 @@ from grass_and_flowers import Flower
 from road import Road
 from settings import Settings
 from goat import Goat
+from obstacle import Obstacle
+from car_obst import CarObst
+from car import Car
 from interactable.enemy import Enemy
 from BetterCryptoAPI import CryptoAPI
 from deso_price import DeSoPrice
@@ -32,9 +38,11 @@ class JimRs_Garage:
         self.deso = DeSoPrice(self)
         self.road = Road(self)
         self.enemies = []
-        self.enemies.append(Enemy(self, self.vehicle))
+        # self.enemies.append(Enemy(self, self.vehicle))
         self.coins = pygame.sprite.Group()
         self.obstacles = pygame.sprite.Group()
+        self.car_obst = CarObst(self, "sprites/thing.bmp")
+        self.obstacles.add(self.car_obst)
 
         self.coins = 0 #initialize player coin count
         self.start_button = Button(self,"Start",30,20,20) #init start button
@@ -79,6 +87,8 @@ class JimRs_Garage:
         self.make_road()
         for i in range(0, len(self.enemies)):
             self.enemies[i].update()
+        for i in self.obstacles:
+            i.update()
         self.vehicle.update()
         self.deso.update()
 
