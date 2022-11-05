@@ -9,7 +9,8 @@ class Shop:
         self.screen_rect = JimRs_Garage.screen
         self.coins = JimRs_Garage.coins
 
-    #def load():
+    def load(self):
+        self.screen.fill(self.settings.shop_color)
 
     
 
