@@ -11,8 +11,8 @@ class Settings:
     # Height: 1000
 
         self.default_bg_color = (86,125,70)
-        self.width = 750
-        self.height = 500
+        self.width = 1500
+        self.height = 1000
 
         self.goat_speed_vert = 3
         self.goat_speed_hor = 3
@@ -29,6 +29,7 @@ class Settings:
     # Screen Settings
     
         self.bg_color = self.default_bg_color
+        self.frame_rate = 60
 
 
     # Vehicle Settings

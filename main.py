@@ -87,7 +87,7 @@ class JimRs_Garage:
             
             self.get_input()
             self.draw()
-            self.clock.tick(60)
+            self.clock.tick(self.settings.frame_rate)
             self.settings.frame_count += 1
 
 
