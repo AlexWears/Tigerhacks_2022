@@ -18,6 +18,7 @@ from tree import Tree
 from car import Car
 from puddle import Puddle
 from rock import Rock
+from coin import Coin
 from interactable.enemy import Enemy
 from BetterCryptoAPI import CryptoAPI
 from deso_price import DeSoPrice
@@ -59,8 +60,9 @@ class JimRs_Garage:
         self.enemies.append(Enemy(self, self.vehicle))
         self.coins = pygame.sprite.Group()
         self.obstacles = pygame.sprite.Group()
+        self.coins = pygame.sprite.Group()
 
-        self.coins = 0 #initialize player coin count
+        self.coinCount = 0 #initialize player coin count
 
         self.start_button = Button(self,"Start", 20, (0,0,0), 150, 75, (255,255,255), self.settings.width/2, self.settings.height/2) #init start button
 
@@ -101,7 +103,7 @@ class JimRs_Garage:
     def make_enemies_and_obstacles(self):
         
         if self.settings.frame_count % self.settings.obstacle_spawn_rate == 0:
-            i = random.randint(0, 20)
+            i = random.randint(0, 18)
 
             if 0 <= (i % 18) <= 2:
                 self.enemies.append(Enemy(self, self.vehicle))
@@ -121,8 +123,17 @@ class JimRs_Garage:
                 try:
                     self.enemies[i].update()
                 except IndexError:
-                    print(len(self.enemies))
+                    pass
         for i in self.obstacles:
+            i.update()
+
+    def make_coins(self):
+
+        if random.randint(0, 1000) % self.settings.coin_spawn_rate == 0:
+            new_coin = Coin(self)
+            self.coins.add(new_coin)
+
+        for i in self.coins:
             i.update()
         
 
@@ -133,6 +144,7 @@ class JimRs_Garage:
         self.make_grass_and_flowers()
         self.make_road()
         self.make_enemies_and_obstacles()
+        self.make_coins()
         self.vehicle.update()
         self.deso.update()
         self.start_button.draw_button()
@@ -153,6 +165,10 @@ class JimRs_Garage:
                 if self.vehicle.rect.colliderect(i):
                     self.obstacles.remove(i)
 
+        if (len(self.coins) > 0):
+            for i in self.coins.copy():
+                if self.vehicle.rect.colliderect(i):
+                    self.coins.remove(i)
 
     def get_input(self):
         

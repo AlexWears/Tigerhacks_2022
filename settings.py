@@ -13,6 +13,7 @@ class Settings:
  
         self.default_bg_color = (86,125,70)
         self.default_obstacle_spawn_rate = 30
+        self.default_coin_spawn_rate = 250
         self.width = 1500
         self.height = 1000
 
@@ -60,6 +61,7 @@ class Settings:
         
         self.enemy_goat_speed = 3
         self.obstacle_spawn_rate = self.default_obstacle_spawn_rate
+        self.coin_spawn_rate = self.default_coin_spawn_rate
 
     # Shop Settings
 
