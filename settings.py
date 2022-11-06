@@ -73,5 +73,5 @@ class Settings:
 
         self.train_cost = 50
         self.car_cost = 75
-        self.plane_cost = 0
-        self.rocket_cost = 0
+        self.plane_cost = 100
+        self.rocket_cost = 125
