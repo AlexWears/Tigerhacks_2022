@@ -296,6 +296,34 @@ class Goat_Upgrader:
         pygame.mixer.Sound.play(self.evil_laugh)
 
         pygame.display.update()
+        
+        pygame.time.wait(500)
+
+        h = 4
+        while h>0:
+            self.draw()
+            self.screen.fill((120,30,20))
+            self.start_button.draw_button()
+            self.start_image = pygame.image.load("sprites/titleScreenLaugh.bmp")
+            self.start_image_rect = self.start_image.get_rect()
+            self.start_image_rect.bottomleft = (0,0)
+            self.start_image_rect.center = self.screen.get_rect().center
+            self.screen.blit(self.start_image, self.start_image_rect)
+            pygame.display.update()
+
+            pygame.time.wait(500)
+            self.draw()
+            self.screen.fill((120,30,20))
+            self.start_button.draw_button()
+            self.start_image = pygame.image.load("sprites/titleScreen.bmp")
+            self.start_image_rect = self.start_image.get_rect()
+            self.start_image_rect.bottomleft = (0,0)
+            self.start_image_rect.center = self.screen.get_rect().center
+            self.screen.blit(self.start_image, self.start_image_rect)
+            pygame.display.update()
+
+            pygame.time.wait(500)
+            h += 1
 
         while self.settings.game_start == False:
             for event in pygame.event.get():
