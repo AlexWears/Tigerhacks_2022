@@ -4,9 +4,9 @@ from obstacle import Obstacle
 
 class Puddle(Obstacle):
 
-    def __init__(self, JimRs_Garage, image):
+    def __init__(self, Goat_Upgrader, image):
 
-        super().__init__(JimRs_Garage, image)
+        super().__init__(Goat_Upgrader, image)
 
         self.rect.x = random.randint(0, self.settings.width)
 

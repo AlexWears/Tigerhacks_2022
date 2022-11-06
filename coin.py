@@ -4,12 +4,12 @@ import random
 
 class Coin(pygame.sprite.Sprite):
 
-    def __init__(self, JimRs_Garage):
+    def __init__(self, Goat_Upgrader):
 
         super().__init__()
 
-        self.settings = JimRs_Garage.settings
-        self.screen = JimRs_Garage.screen
+        self.settings = Goat_Upgrader.settings
+        self.screen = Goat_Upgrader.screen
 
         self.image = pygame.image.load("sprites/DeSo.bmp")
         self.rect = self.image.get_rect()

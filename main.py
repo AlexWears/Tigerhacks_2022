@@ -27,7 +27,7 @@ from rocket import Rocket
 from score import Score
 from healthbar import HealthBar
  
-class JimRs_Garage:
+class Goat_Upgrader:
 
     def __init__(self):
     # Init method
@@ -38,7 +38,7 @@ class JimRs_Garage:
         self.screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
         self.settings.height = self.screen.get_rect().height
         self.settings.width = self.screen.get_rect().width
-        pygame.display.set_caption("JimR's Garage")
+        pygame.display.set_caption("Goat Upgrader")
         self.clock = pygame.time.Clock()
 
     # Creates the sprites that we'll need
@@ -318,5 +318,5 @@ class JimRs_Garage:
 
 if __name__ == "__main__":
     deso_price = CryptoAPI.get_DeSo_price()
-    game = JimRs_Garage()
+    game = Goat_Upgrader()
     game.run_game()

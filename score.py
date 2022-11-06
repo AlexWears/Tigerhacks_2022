@@ -3,14 +3,14 @@ import pygame
 
 class Score:
 
-    def __init__(self, JimRs_Garage):
+    def __init__(self, Goat_Upgrader):
         self.text_color = (0,0,0)
         self.back_color = (255,255,255)
         self.font = pygame.font.SysFont("Comic Sans MS", 30)
 
-        self.settings = JimRs_Garage.settings
-        self.screen = JimRs_Garage.screen
-        self.screen_rect = JimRs_Garage.screen
+        self.settings = Goat_Upgrader.settings
+        self.screen = Goat_Upgrader.screen
+        self.screen_rect = Goat_Upgrader.screen
         self.coin_score = 0
 
         self.score_text = self.font.render("Score: "+str(self.settings.frame_count), True, self.text_color)

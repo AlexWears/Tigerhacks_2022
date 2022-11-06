@@ -4,9 +4,9 @@ from obstacle import Obstacle
 
 class CarObst(Obstacle):
 
-    def __init__(self, JimRs_Garage, image):
+    def __init__(self, Goat_Upgrader, image):
     
-        super().__init__(JimRs_Garage, image)
+        super().__init__(Goat_Upgrader, image)
         self.speed = self.settings.env_speed + 3
         
         if random.randint(1,2) % 2 == 1:
