@@ -154,6 +154,7 @@ class JimRs_Garage:
                 if self.vehicle.rect.colliderect(self.enemies[i]):
                     self.settings.health -= self.enemies[i].damage
                     if self.settings.health > 0:
+                        self.enemies[i].damage = 0
                         self.vehicle.play_hurt_sound()
                     else:
                         self.vehicle.play_dead_sound()
