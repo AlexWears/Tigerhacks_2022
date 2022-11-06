@@ -19,7 +19,7 @@ class Vehicle(pygame.sprite.Sprite):
         self.max_fuel = 0
         self.fly_choice = False
 
-        self.fb_text = self.font.render("Press [Space] to fly", True, (255,255,255))
+        self.fb_text = self.font.render("Press [Space] to fly", True, (0,0,0))
         self.fbt_rect = self.fb_text.get_rect()
         self.fbt_rect.bottomleft = (55, self.settings.height-55)
         

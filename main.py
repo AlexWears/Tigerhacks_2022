@@ -405,7 +405,7 @@ class Goat_Upgrader:
 
             self.clock.tick(self.settings.frame_rate)
             self.settings.frame_count += 1
-            if(self.settings.frame_count%600 and self.vehicle.fuel <= (self.vehicle.max_fuel-1) and self.vehicle.fly_choice == False): self.vehicle.fuel += 1
+            if((self.settings.frame_count%40 == 0 and (self.vehicle.fuel <= (self.vehicle.max_fuel-1))) and self.vehicle.fly_choice == False): self.vehicle.fuel += 5
 
 
 if __name__ == "__main__":
