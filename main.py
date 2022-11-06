@@ -246,7 +246,7 @@ class Goat_Upgrader:
 
 
     def _check_start_button(self, mouse_pos):
-        if(self.start_button.rect.collidepoint(mouse_pos)):
+        if(self.start_button.rect.  point(mouse_pos)):
             self.settings.game_start = True
 
     def clear_screen(self):
