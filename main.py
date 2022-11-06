@@ -265,6 +265,24 @@ class JimRs_Garage:
             self.draw()
             self.collisions()
             if self.settings.health <= 0:
+               
+                counter = 0
+                while counter < 100:
+                    counter += 1
+                    self.vehicle.image = pygame.image.load("sprites/bomb1.bmp")
+                    self.screen.blit(self.vehicle.image, self.vehicle.rect)
+                    pygame.display.update()
+                while counter < 200:
+                    counter += 1
+                    self.vehicle.image = pygame.image.load("sprites/bomb2.bmp")
+                    self.screen.blit(self.vehicle.image, self.vehicle.rect)
+                    pygame.display.update()
+                while counter < 300:
+                    counter += 1
+                    self.vehicle.image = pygame.image.load("sprites/bomb3.bmp")
+                    self.screen.blit(self.vehicle.image, self.vehicle.rect)
+                    pygame.display.update()
+
                 self.clear_screen()
                 self.score.check_high_score()
                 self.shop.load(self)
