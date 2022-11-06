@@ -58,7 +58,7 @@ class JimRs_Garage:
 
         self.coinCount = 0 #initialize player coin count
 
-        self.start_button = Button(self,"Start", 20, (0,0,0), 150, 75, (255,255,255), self.settings.width/2, self.settings.height/2) #init start button
+        self.start_button = Button(self,"Start", 20, (0,0,0), 150, 75, (255,255,255), self.settings.width-150, self.settings.height-150) #init start button
 
         #init shop
         self.shop = Shop(self)
@@ -229,6 +229,7 @@ class JimRs_Garage:
 
         #Start menu
         self.draw()
+        self.screen.blit(pygame.image.load("sprites/titleScreen.bmp"), pygame.image.load("sprites/titleScreen.bmp").get_rect())
         self.start_button.draw_button()
         while self.settings.game_start == False:
             for event in pygame.event.get():

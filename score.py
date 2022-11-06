@@ -38,3 +38,4 @@ class Score:
         if self.settings.frame_count + self.coin_score > self.settings.high_score:
             self.settings.high_score = self.settings.frame_count + self.coin_score
             self.settings.frame_count = 0
+            self.coin_score = 0
