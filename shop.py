@@ -208,7 +208,7 @@ class Shop:
                     elif key == pygame.K_ESCAPE:
                         self.settings.v_type = 1
                         self.settings.health = 150
-                        self._reset_directions()
+                        self._reset_stuff()
                         Goat_Upgrader.start_music()
                         return 
 
