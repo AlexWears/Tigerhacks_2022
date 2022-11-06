@@ -24,55 +24,70 @@ class Shop:
         #Set train picture, name, price and buy button
         self.train_img = pygame.image.load("sprites/train.bmp")
         self.train_rect = self.train_img.get_rect()
-        self.train_rect.center = (200, 150)
+        self.train_rect.center = (200, 140)
         self.train_text = self.font.render("Steam-Powered Goat", True, self.text_color)
         self.train_text_rect = self.train_text.get_rect()
-        self.train_text_rect.center = (500, 150)
+        self.train_text_rect.center = (500, 140)
         self.train_price = self.font.render(str(self.settings.train_cost), True, self.text_color)
         self.train_price_rect = self.train_price.get_rect()
-        self.train_price_rect.center = (800, 150)
-        self.train_button = Button(self, "Buy", 30, self.text_color, 100, 50, self.button_color, 1000, 150)
+        self.train_price_rect.center = (800, 140)
+        self.train_button = Button(self, "Buy", 30, self.text_color, 100, 50, self.button_color, 1000, 140)
         
         #Set car picture, name, price, and buy button
         self.car_img = pygame.image.load("sprites/car.bmp")
         self.car_rect = self.car_img.get_rect()
-        self.car_rect.center = (200, 350)
+        self.car_rect.center = (200, 340)
         self.car_text = self.font.render("Goat with a V8", True, self.text_color)
         self.car_text_rect = self.car_text.get_rect()
-        self.car_text_rect.center = (500, 350)
+        self.car_text_rect.center = (500, 340)
         self.car_price = self.font.render(str(self.settings.car_cost), True, self.text_color)
         self.car_price_rect = self.car_price.get_rect()
-        self.car_price_rect.center = (800, 350)
-        self.car_button = Button(self, "Buy", 30, self.text_color, 100, 50, self.button_color, 1000, 350)
+        self.car_price_rect.center = (800, 340)
+        self.car_button = Button(self, "Buy", 30, self.text_color, 100, 50, self.button_color, 1000, 340)
 
         #Set plane picture, name, price, and buy button
         self.plane_img = pygame.image.load("sprites/plane.bmp")
         self.plane_rect = self.plane_img.get_rect()
-        self.plane_rect.center = (200, 500)
+        self.plane_rect.center = (200, 490)
         self.plane_text = self.font.render("Goat with Wings", True, self.text_color)
         self.plane_text_rect = self.plane_text.get_rect()
-        self.plane_text_rect.center = (500, 500)
+        self.plane_text_rect.center = (500, 490)
         self.plane_price = self.font.render(str(self.settings.plane_cost), True, self.text_color)
         self.plane_price_rect = self.plane_price.get_rect()
-        self.plane_price_rect.center = (800, 500)
-        self.plane_button = Button(self, "Buy", 30, self.text_color, 100, 50, self.button_color, 1000, 500)
+        self.plane_price_rect.center = (800, 490)
+        self.plane_button = Button(self, "Buy", 30, self.text_color, 100, 50, self.button_color, 1000, 490)
 
         #Set rocket picture, name, price, and buy button
         self.rocket_img = pygame.image.load("sprites/rocket.bmp")
         self.rocket_rect = self.rocket_img.get_rect()
-        self.rocket_rect.center = (200, 700)
+        self.rocket_rect.center = (200, 690)
         self.rocket_text = self.font.render("Explosive Goat", True, self.text_color)
         self.rocket_text_rect = self.rocket_text.get_rect()
-        self.rocket_text_rect.center = (500, 700)
+        self.rocket_text_rect.center = (500, 690)
         self.rocket_price = self.font.render(str(self.settings.rocket_cost), True, self.text_color)
         self.rocket_price_rect = self.rocket_price.get_rect()
-        self.rocket_price_rect.center = (800, 700)
-        self.rocket_button = Button(self, "Buy", 30, self.text_color, 100, 50, self.button_color, 1000, 700)
+        self.rocket_price_rect.center = (800, 690)
+        self.rocket_button = Button(self, "Buy", 30, self.text_color, 100, 50, self.button_color, 1000, 690)
 
         #Set death recap text
         self.death_recap = self.font.render("Click here for a death recap.", True, self.text_color)
         self.dr_rect = self.death_recap.get_rect()
-        self.dr_rect.center = (self.settings.width/2, self.settings.height-30)
+        self.dr_rect.center = (self.settings.width/2, self.settings.height-25)
+
+        #Set Shop TItle 
+        self.shop_title = self.font.render("Upgrade Your Goat", True, self.text_color)
+        self.st_rect = self.shop_title.get_rect()
+        self.st_rect.center = (self.settings.width/2, 25)
+
+        #Set Goat Instructions
+        self.goat_inst = self.font.render("Press [Esc] to use the goat again", True, self.text_color)
+        self.gi_rect = self.goat_inst.get_rect()
+        self.gi_rect.center = (self.settings.width/2, self.settings.height-95)
+
+        #Set no funds message
+        self.no_funds = self.font.render("If you try to buy something you can't afford, you will get the goat", True, self.text_color)
+        self.nf_rect = self.no_funds.get_rect()
+        self.nf_rect.center = (self.settings.width/2, self.settings.height-60)
 
         #Set coin count text in upper right corner
         self.coin_text = self.font.render(str(self.settings.coin_count)+" DeSo", True, self.text_color)
@@ -176,6 +191,9 @@ class Shop:
             self.screen.blit(self.coin_text, self.coin_text_rect)
             self.screen.blit(self.usd_text, self.usd_text_rect)
             self.screen.blit(self.death_recap, self.dr_rect)
+            self.screen.blit(self.shop_title, self.st_rect)
+            self.screen.blit(self.goat_inst, self.gi_rect)
+            self.screen.blit(self.no_funds, self.nf_rect)
 
             self.deso.update()
 
