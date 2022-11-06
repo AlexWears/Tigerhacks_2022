@@ -266,6 +266,7 @@ class JimRs_Garage:
                 elif event.type == pygame.KEYDOWN:
                     key = event.key
                     if key == pygame.K_RETURN:
+                        self.start_button.move_button()
                         self.settings.game_start = True
                     elif key == pygame.K_ESCAPE:
                         sys.exit()
