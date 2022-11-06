@@ -27,7 +27,7 @@ from rocket import Rocket
 from score import Score
 from healthbar import HealthBar
  
-class JimRs_Garage:
+class Goat_Upgrader:
 
     def __init__(self):
     # Init method
@@ -38,7 +38,7 @@ class JimRs_Garage:
         self.screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
         self.settings.height = self.screen.get_rect().height
         self.settings.width = self.screen.get_rect().width
-        pygame.display.set_caption("JimR's Garage")
+        pygame.display.set_caption("Goat Upgrader")
         self.clock = pygame.time.Clock()
 
     # Creates the sprites that we'll need
@@ -95,11 +95,27 @@ class JimRs_Garage:
         self.road.update()
 
     def make_enemies_and_obstacles(self):
+
+        if self.settings.frame_count == 1800:
+            self.settings.obstacle_spawn_rate -= 5
+            self.settings.coin_spawn_rate -= 30
+        elif self.settings.frame_count == 3600:
+            self.settings.obstacle_spawn_rate -= 5
+            self.settings.coin_spawn_rate -= 30
+        elif self.settings.frame_count == 5400:
+            self.settings.obstacle_spawn_rate -= 5
+            self.settings.coin_spawn_rate -= 30
+        elif self.settings.frame_count == 7200:
+            self.settings.obstacle_spawn_rate -= 5
+            self.settings.coin_spawn_rate -= 30
+        elif self.settings.frame_count == 9000:
+            self.settings.obstacle_spawn_rate -= 5
+            self.settings.coin_spawn_rate -= 30
         
-        if self.settings.frame_count % self.settings.obstacle_spawn_rate == 0:
+        if self.settings.frame_count % self.settings.obstacle_spawn_rate == 0 or self.settings.frame_count % self.settings.obstacle_spawn_rate == 1:
             i = random.randint(0, 18)
 
-            if 0 <= (i % 18) <= 2:
+            if 0 <= (i % 18) <= 1:
                 self.enemies.append(Enemy(self, self.vehicle))
             elif 3 <= (i % 18) < 5:
                 self.obstacles.add(CarObst(self, "sprites/evilCar.bmp"))
@@ -142,6 +158,24 @@ class JimRs_Garage:
         self.vehicle.update()
         self.deso.update()
         self.start_button.draw_button()
+        self.score.update()
+        self.health_bar.update()
+
+        pygame.display.flip()
+
+    def draw_after_death(self):
+        self.screen.fill(self.settings.bg_color)
+        for i in self.enemies:
+            i.blit_enemy()
+        for i in self.obstacles:
+            i.blit_obstacle()
+        for i in self.grasses:
+            i.blit_grass()
+        for i in self.flowers:
+            i.blit_flower()
+        self.road.blit_road()
+        for i in self.coins:
+            i.blit()
         self.score.update()
         self.health_bar.update()
 
@@ -269,6 +303,7 @@ class JimRs_Garage:
                 elif event.type == pygame.KEYDOWN:
                     key = event.key
                     if key == pygame.K_RETURN:
+                        self.start_button.move_button()
                         self.settings.game_start = True
                     elif key == pygame.K_ESCAPE:
                         sys.exit()
@@ -283,43 +318,62 @@ class JimRs_Garage:
             self.collisions()
             if self.settings.health <= 0:
                
-                counter = 0
-                while counter < 100:
-                    counter += 1
-                    self.vehicle.image = pygame.image.load("sprites/bomb1.bmp")
-                    self.screen.blit(self.vehicle.image, self.vehicle.rect)
-                    pygame.display.update()
-                while counter < 200:
-                    counter += 1
-                    self.vehicle.image = pygame.image.load("sprites/bomb2.bmp")
-                    self.screen.blit(self.vehicle.image, self.vehicle.rect)
-                    pygame.display.update()
-                while counter < 300:
-                    counter += 1
-                    self.vehicle.image = pygame.image.load("sprites/bomb3.bmp")
-                    self.screen.blit(self.vehicle.image, self.vehicle.rect)
-                    pygame.display.update()
+                self.vehicle.image = pygame.image.load("sprites/bomb1.bmp")
+                x = self.vehicle.rect.midbottom
+                self.vehicle.rect = self.vehicle.image.get_rect()
+                self.vehicle.rect.midbottom = x
+                self.draw_after_death()
+                self.screen.blit(self.vehicle.image, self.vehicle.rect)
+                pygame.display.update()
+    
+                pygame.time.wait(1000)
+                
+                self.vehicle.image = pygame.image.load("sprites/bomb2.bmp")
+                x = self.vehicle.rect.midbottom
+                self.vehicle.rect = self.vehicle.image.get_rect()
+                self.vehicle.rect.midbottom = x
+                self.draw_after_death()
+                self.screen.blit(self.vehicle.image, self.vehicle.rect)
+                pygame.display.update()
+
+                pygame.time.wait(1000)
+
+                self.vehicle.image = pygame.image.load("sprites/bomb3.bmp")
+                x = self.vehicle.rect.midbottom
+                self.vehicle.rect = self.vehicle.image.get_rect()
+                self.vehicle.rect.midbottom = x
+                self.draw_after_death()
+                self.screen.blit(self.vehicle.image, self.vehicle.rect)
+                pygame.display.update()
+
+                pygame.time.wait(1000)
 
                 self.clear_screen()
                 self.score.check_high_score()
                 self.shop.load(self)
                 if(self.settings.v_type == 0):
                     self.vehicle = Goat(self)
+                    self.settings.v_type == 0
                 elif(self.settings.v_type == 1):
                     self.vehicle = Goat(self)
+                    self.settings.v_type == 1
                 elif(self.settings.v_type == 2):
                     self.vehicle = Train(self)
+                    self.settings.v_type == 2
                 elif(self.settings.v_type == 3):
                     self.vehicle = Car(self)
+                    self.settings.v_type == 3
                 elif(self.settings.v_type == 4):
                     self.vehicle = Plane(self)
+                    self.settings.v_type == 4
                 elif(self.settings.v_type == 5):
                     self.vehicle = Rocket(self)
+                    self.settings.v_type == 5
             self.clock.tick(self.settings.frame_rate)
             self.settings.frame_count += 1
 
 
 if __name__ == "__main__":
     deso_price = CryptoAPI.get_DeSo_price()
-    game = JimRs_Garage()
+    game = Goat_Upgrader()
     game.run_game()

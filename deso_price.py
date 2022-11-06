@@ -5,15 +5,15 @@ from BetterCryptoAPI import CryptoAPI
 
 class DeSoPrice():
 
-    def __init__(self, JimRs_Garage):
+    def __init__(self, Goat_Upgrader):
 
         
 
         self.font = pygame.font.SysFont("Comic Sans MS", 20)
 
-        self.settings = JimRs_Garage.settings
-        self.screen = JimRs_Garage.screen
-        self.screen_rect = JimRs_Garage.screen.get_rect()
+        self.settings = Goat_Upgrader.settings
+        self.screen = Goat_Upgrader.screen
+        self.screen_rect = Goat_Upgrader.screen.get_rect()
         self.initialize()
 
         

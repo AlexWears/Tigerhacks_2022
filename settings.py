@@ -14,7 +14,8 @@ class Settings:
         self.default_bg_color = (86,125,70)
         self.default_obstacle_spawn_rate = 30
         self.default_coin_spawn_rate = 250
-        self.width = 1500
+        self.default_env_speed = 5
+        self.width = 1500 
         self.height = 1000
 
         self.goat_speed_vert = 8
@@ -59,13 +60,13 @@ class Settings:
 
     # Environment Settings
 
-        self.env_speed = 5
+        self.env_speed = self.default_env_speed
         self.time_between_grass = 2
         self.frame_count = 0
         self.road_width = 0
         self.road_left = 0
         
-        self.enemy_goat_speed = 3
+        self.enemy_goat_speed = 4
         self.obstacle_spawn_rate = self.default_obstacle_spawn_rate
         self.coin_spawn_rate = self.default_coin_spawn_rate
 

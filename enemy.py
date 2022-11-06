@@ -5,11 +5,11 @@ import random
 
 class Enemy:
 
-    def __init__(self, JimRs_Garage, vehicle):
+    def __init__(self, Goat_Upgrader, vehicle):
 
-        self.settings = JimRs_Garage.settings
-        self.enemy_list = JimRs_Garage.enemies
-        self.screen = JimRs_Garage.screen
+        self.settings = Goat_Upgrader.settings
+        self.enemy_list = Goat_Upgrader.enemies
+        self.screen = Goat_Upgrader.screen
         self.vehicle = vehicle
 
         self.image = pygame.image.load("sprites/evilGoat.bmp")

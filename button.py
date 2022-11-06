@@ -3,11 +3,11 @@ import pygame
 
 class Button:
 
-    def __init__(self, JimRs_Garage, text, t_size, t_color, b_width, b_height, b_color, x, y):
+    def __init__(self, Goat_Upgrader, text, t_size, t_color, b_width, b_height, b_color, x, y):
 
-        self.settings = JimRs_Garage.settings
-        self.screen = JimRs_Garage.screen
-        self.screen_rect = JimRs_Garage.screen.get_rect()
+        self.settings = Goat_Upgrader.settings
+        self.screen = Goat_Upgrader.screen
+        self.screen_rect = Goat_Upgrader.screen.get_rect()
 
         self.width, self.height = b_width, b_height
         self.button_color = b_color
@@ -32,5 +32,3 @@ class Button:
         self.rect.center = (-100, -100)
         self.msg_image_rect.center = (-100, -100)
         self.draw_button()
-
-
