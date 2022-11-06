@@ -55,6 +55,7 @@ class Goat_Upgrader:
         self.coins = pygame.sprite.Group()
         self.score = Score(self)
         self.health_bar = HealthBar(self)
+        self.vehicle.fuel_gauge(self)
 
         self.coinCount = 0 #initialize player coin count
 
@@ -160,6 +161,7 @@ class Goat_Upgrader:
         self.start_button.draw_button()
         self.score.update()
         self.health_bar.update()
+        if(self.vehicle.fuel >= 0 or self.vehicle.fly_choice == False): self.vehicle.update_fuel()
 
         pygame.display.flip()
 
@@ -178,6 +180,7 @@ class Goat_Upgrader:
             i.blit()
         self.score.update()
         self.health_bar.update()
+        if(self.vehicle.fuel >= 0 or self.vehicle.fly_choice == False): self.vehicle.update_fuel()
 
         pygame.display.flip()
 
@@ -341,7 +344,7 @@ class Goat_Upgrader:
             if(self.settings.v_type == 4): self.vehicle.fly(pygame.image.load("sprites/plane.bmp"),pygame.image.load("sprites/planeShadow.bmp"))
             if(self.settings.v_type == 5): self.vehicle.fly(pygame.image.load("sprites/rocket.bmp"),pygame.image.load("sprites/rocketShadow.bmp"))
             self.draw()
-            self.collisions()
+            if(self.vehicle.fuel <= 0 or self.vehicle.fly_choice == 0): self.collisions()
             if self.settings.health <= 0:
                
                 self.vehicle.image = pygame.image.load("sprites/bomb1.bmp")
