@@ -229,8 +229,15 @@ class JimRs_Garage:
 
         #Start menu
         self.draw()
-        self.screen.blit(pygame.image.load("sprites/titleScreen.bmp"), pygame.image.load("sprites/titleScreen.bmp").get_rect())
+        self.screen.fill((120,30,20))
         self.start_button.draw_button()
+        self.start_image = pygame.image.load("sprites/titleScreen.bmp")
+        self.start_image_rect = self.start_image.get_rect()
+        self.start_image_rect.bottomleft = (0,0)
+        self.start_image_rect.center = self.screen.get_rect().center
+        self.screen.blit(self.start_image, self.start_image_rect)
+        pygame.display.update()
+
         while self.settings.game_start == False:
             for event in pygame.event.get():
                 if event.type == pygame.MOUSEBUTTONDOWN:
