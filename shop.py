@@ -130,6 +130,7 @@ class Shop:
         pygame.mixer.music.load("sounds/shop_music.ogg")
         pygame.mixer.music.play(-1)
         self._create_stuff()
+        self.deso.initialize()
         self.usd = self.settings.coin_count * self.settings.deso_conv
         while self.settings.health <= 0:
 
