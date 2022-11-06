@@ -291,6 +291,8 @@ class Goat_Upgrader:
         pygame.mixer.init()
         pygame.mixer.music.load('sounds/titleMusic.ogg')
         pygame.mixer.music.play(-1)
+        self.evil_laugh = pygame.mixer.Sound("sounds/evil_goat_laugh.ogg")
+        pygame.mixer.Sound.play(self.evil_laugh)
 
         pygame.display.update()
 
