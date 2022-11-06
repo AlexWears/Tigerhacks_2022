@@ -81,7 +81,6 @@ class Shop:
                 self.settings.coin_count -= self.settings.train_cost / self.settings.deso_conv
             self.settings.health = 100
             self._reset_directions()
-            return
 
     def _check_car_button(self, mouse_pos):
         if(self.car_button.rect.collidepoint(mouse_pos)):
@@ -91,7 +90,6 @@ class Shop:
                 self.settings.coin_count -= self.settings.car_cost / self.settings.deso_conv
             self.settings.health = 100
             self._reset_directions()
-            return
 
     def _check_plane_button(self, mouse_pos):
         if(self.plane_button.rect.collidepoint(mouse_pos)):
@@ -101,7 +99,6 @@ class Shop:
                 self.settings.coin_count -= self.settings.plane_cost / self.settings.deso_conv
             self.settings.health = 100
             self._reset_directions()
-            return
 
     def _check_rocket_button(self, mouse_pos):
         if(self.rocket_button.rect.collidepoint(mouse_pos)):
@@ -111,7 +108,6 @@ class Shop:
                 self.settings.coin_count -= self.settings.plane_cost / self.settings.deso_conv
             self.settings.health = 100
             self._reset_directions()
-            return
 
     def _reset_directions(self):
         self.settings.moving_up = False
@@ -164,6 +160,8 @@ class Shop:
                     self._check_car_button(mouse_pos)
                     self._check_plane_button(mouse_pos)
                     self._check_rocket_button(mouse_pos)
+                    JimRs_Garage.start_music()
+                    return
                 
                 elif event.type == pygame.QUIT:
                     sys.exit()
@@ -185,7 +183,6 @@ class Shop:
                         self._reset_directions()
                         JimRs_Garage.start_music()
                         return 
-                    
 
             pygame.display.flip()
 
