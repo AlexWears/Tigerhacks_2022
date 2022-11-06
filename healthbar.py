@@ -23,7 +23,7 @@ class HealthBar(pygame.sprite.Sprite):
 
         #back of health bar (black bar)
         self.height2 = 60
-        self.width2 = ((self.health * 5) + 10)
+        self.width2 = 760
         self.BG_rect = pygame.Rect(45,45, self.width2, self.height2)
         self.BGcolor = (0, 0, 0)
         self.BG_rect.topleft = (45, 45)
