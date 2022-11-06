@@ -349,16 +349,22 @@ class Goat_Upgrader:
                 self.shop.load(self)
                 if(self.settings.v_type == 0):
                     self.vehicle = Goat(self)
+                    self.settings.v_type == 0
                 elif(self.settings.v_type == 1):
                     self.vehicle = Goat(self)
+                    self.settings.v_type == 1
                 elif(self.settings.v_type == 2):
                     self.vehicle = Train(self)
+                    self.settings.v_type == 2
                 elif(self.settings.v_type == 3):
                     self.vehicle = Car(self)
+                    self.settings.v_type == 3
                 elif(self.settings.v_type == 4):
                     self.vehicle = Plane(self)
+                    self.settings.v_type == 4
                 elif(self.settings.v_type == 5):
                     self.vehicle = Rocket(self)
+                    self.settings.v_type == 5
             self.clock.tick(self.settings.frame_rate)
             self.settings.frame_count += 1
 
