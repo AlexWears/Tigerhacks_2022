@@ -50,7 +50,7 @@ class Vehicle(pygame.sprite.Sprite):
         self.dead_sound = pygame.mixer.Sound("sounds/goatdead.ogg")
         pygame.mixer.Sound.play(self.dead_sound)
 
-    def fly(self, image):
+    def fly(self, shadow, image):
         if(self.settings.v_type != 4 and self.settings.v_type != 5):
             print("here")
             print(self.settings.v_type)
@@ -64,7 +64,7 @@ class Vehicle(pygame.sprite.Sprite):
                 print("iterator =" + str(self.scale_i))
                 return
             if(self.fly_i == 0): 
-                self.image = pygame.image.load("sprites/thing.bmp")
+                self.image = pygame.image.load(shadow)
                 self.fly_i += 1
                 print("fly_i = " + str(self.fly_i))
             self.fuel -= 1

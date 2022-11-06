@@ -313,7 +313,8 @@ class Goat_Upgrader:
         while self.settings.game_start == True:
 
             self.get_input()
-            self.vehicle.fly(pygame.image.load("sprites/plane.bmp"))
+            if(self.settings.v_type == 4): self.vehicle.fly(pygame.image.load("sprites/plane.bmp","sprites/planeShadow.bmp"))
+            if(self.settings.v_type == 5): self.vehicle.fly(pygame.image.load("sprites/rocket.bmp","sprites/rocketShadow.bmp"))
             self.draw()
             self.collisions()
             if self.settings.health <= 0:
