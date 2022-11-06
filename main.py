@@ -161,7 +161,7 @@ class Goat_Upgrader:
         self.start_button.draw_button()
         self.score.update()
         self.health_bar.update()
-        if(self.vehicle.fuel >= 0 or self.vehicle.fly_choice == 1): self.vehicle.update_fuel()
+        if(self.vehicle.fuel >= 0 or self.vehicle.fly_choice == False): self.vehicle.update_fuel()
 
         pygame.display.flip()
 
@@ -180,7 +180,7 @@ class Goat_Upgrader:
             i.blit()
         self.score.update()
         self.health_bar.update()
-        if(self.vehicle.fuel >= 0 or self.vehicle.fly_choice == 1): self.vehicle.update_fuel()
+        if(self.vehicle.fuel >= 0 or self.vehicle.fly_choice == False): self.vehicle.update_fuel()
 
         pygame.display.flip()
 
