@@ -25,7 +25,6 @@ from plane import Plane
 from train import Train
 from rocket import Rocket
 from score import Score
-from sounds import Sounds
  
 class JimRs_Garage:
 
@@ -172,6 +171,7 @@ class JimRs_Garage:
                     self.settings.coin_count += 1
                     self.score.coin_score += 50
                     self.coins.remove(i)
+                    pygame.mixer.Sound.play(pygame.mixer.Sound("sounds/coin.ogg"))
 
     def get_input(self):
         

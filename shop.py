@@ -126,6 +126,7 @@ class Shop:
     def load(self, JimRs_Garage):
 
         pygame.mixer.init()
+        pygame.mixer.pause()
         pygame.mixer.music.load("sounds/shop_music.ogg")
         pygame.mixer.music.play(-1)
         self._create_stuff()
