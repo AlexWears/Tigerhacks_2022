@@ -15,6 +15,7 @@ class Rocket(Vehicle):
 
         self.settings.speed_vert = self.settings.rocket_speed_vert
         self.settings.speed_hor = self.settings.rocket_speed_hor
+        self.fuel = 500
 
     def blit_train(self):
 

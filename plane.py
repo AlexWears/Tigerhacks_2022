@@ -15,7 +15,7 @@ class Plane(Vehicle):
 
         self.settings.speed_vert = self.settings.plane_speed_vert
         self.settings.speed_hor = self.settings.plane_speed_hor
-        self.fuel = 100
+        self.fuel = 300
 
     def blit_plane(self):
 
