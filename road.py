@@ -3,16 +3,16 @@ import pygame
 
 class Road:
 
-    def __init__(self, JimRs_Garage):
-        self.settings = JimRs_Garage.settings
+    def __init__(self, Goat_Upgrader):
+        self.settings = Goat_Upgrader.settings
 
         self.width = 400
         self.settings.road_width = self.width
         self.height = self.settings.height
-        self.screen = JimRs_Garage.screen
+        self.screen = Goat_Upgrader.screen
 
         self.rect = pygame.Rect(0,0, self.width, self.height)
-        self.rect.midtop = JimRs_Garage.screen.get_rect().midtop
+        self.rect.midtop = Goat_Upgrader.screen.get_rect().midtop
         self.color = (55, 55, 55)
         self.settings.road_left = self.rect.left
 

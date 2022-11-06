@@ -27,7 +27,7 @@ from rocket import Rocket
 from score import Score
 from healthbar import HealthBar
  
-class JimRs_Garage:
+class Goat_Upgrader:
 
     def __init__(self):
     # Init method
@@ -38,7 +38,7 @@ class JimRs_Garage:
         self.screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
         self.settings.height = self.screen.get_rect().height
         self.settings.width = self.screen.get_rect().width
-        pygame.display.set_caption("JimR's Garage")
+        pygame.display.set_caption("Goat Upgrader")
         self.clock = pygame.time.Clock()
 
     # Creates the sprites that we'll need
@@ -257,10 +257,21 @@ class JimRs_Garage:
 
         self.font = pygame.font.SysFont("Comic Sans MS", 30)
         self.text_color = (0,0,0)
+
+        self.start_txt = self.font.render("Press the button or [Enter] to start.", True, self.text_color)
+        self.s_txt_rect = self.start_txt.get_rect()
+        self.s_txt_rect.center = (self.settings.width/2, self.settings.height-75)
+
         self.instructions = self.font.render("Press [Esc] to exit.", True, self.text_color)
         self.inst_rect = self.instructions.get_rect()
         self.inst_rect.center = (self.settings.width/2, self.settings.height-30)
+
+        self.screen.blit(self.start_txt, self.s_txt_rect)
         self.screen.blit(self.instructions, self.inst_rect)
+
+        pygame.mixer.init()
+        pygame.mixer.music.load('sounds/titleMusic.ogg')
+        pygame.mixer.music.play(-1)
 
         pygame.display.update()
 
@@ -270,6 +281,13 @@ class JimRs_Garage:
                     mouse_pos = pygame.mouse.get_pos()
                     self._check_start_button(mouse_pos)
                     self.start_button.move_button()
+                elif event.type == pygame.KEYDOWN:
+                    key = event.key
+                    if key == pygame.K_RETURN:
+                        self.start_button.move_button()
+                        self.settings.game_start = True
+                    elif key == pygame.K_ESCAPE:
+                        sys.exit()
 
         self.start_music()
 
@@ -331,5 +349,5 @@ class JimRs_Garage:
 
 if __name__ == "__main__":
     deso_price = CryptoAPI.get_DeSo_price()
-    game = JimRs_Garage()
+    game = Goat_Upgrader()
     game.run_game()
