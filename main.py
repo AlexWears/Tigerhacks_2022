@@ -115,7 +115,7 @@ class Goat_Upgrader:
         if self.settings.frame_count % self.settings.obstacle_spawn_rate == 0 or self.settings.frame_count % self.settings.obstacle_spawn_rate == 1:
             i = random.randint(0, 18)
 
-            if 0 <= (i % 18) <= 2:
+            if 0 <= (i % 18) <= 1:
                 self.enemies.append(Enemy(self, self.vehicle))
             elif 3 <= (i % 18) < 5:
                 self.obstacles.add(CarObst(self, "sprites/evilCar.bmp"))
@@ -227,6 +227,8 @@ class Goat_Upgrader:
                         self.settings.moving_left = True
                     elif key == pygame.K_RIGHT or key == pygame.K_d:
                         self.settings.moving_right = True
+                    elif key == pygame.K_SPACE:
+                        self.vehicle.fly_choice = 1
                     elif key == pygame.K_ESCAPE:
                         sys.exit()
 
@@ -240,6 +242,7 @@ class Goat_Upgrader:
                         self.settings.moving_left = False
                     elif key == pygame.K_RIGHT or key == pygame.K_d:
                         self.settings.moving_right = False
+
 
     def _check_start_button(self, mouse_pos):
         if(self.start_button.rect.collidepoint(mouse_pos)):
@@ -310,6 +313,7 @@ class Goat_Upgrader:
         while self.settings.game_start == True:
 
             self.get_input()
+            self.vehicle.fly(pygame.image.load("sprites/plane.bmp"))
             self.draw()
             self.collisions()
             if self.settings.health <= 0:
@@ -322,7 +326,7 @@ class Goat_Upgrader:
                 self.screen.blit(self.vehicle.image, self.vehicle.rect)
                 pygame.display.update()
     
-                pygame.time.wait(1300)
+                pygame.time.wait(1000)
                 
                 self.vehicle.image = pygame.image.load("sprites/bomb2.bmp")
                 x = self.vehicle.rect.midbottom
@@ -332,7 +336,7 @@ class Goat_Upgrader:
                 self.screen.blit(self.vehicle.image, self.vehicle.rect)
                 pygame.display.update()
 
-                pygame.time.wait(1300)
+                pygame.time.wait(1000)
 
                 self.vehicle.image = pygame.image.load("sprites/bomb3.bmp")
                 x = self.vehicle.rect.midbottom
@@ -342,23 +346,29 @@ class Goat_Upgrader:
                 self.screen.blit(self.vehicle.image, self.vehicle.rect)
                 pygame.display.update()
 
-                pygame.time.wait(1300)
+                pygame.time.wait(1000)
 
                 self.clear_screen()
                 self.score.check_high_score()
                 self.shop.load(self)
                 if(self.settings.v_type == 0):
                     self.vehicle = Goat(self)
+                    self.settings.v_type == 0
                 elif(self.settings.v_type == 1):
                     self.vehicle = Goat(self)
+                    self.settings.v_type == 1
                 elif(self.settings.v_type == 2):
                     self.vehicle = Train(self)
+                    self.settings.v_type == 2
                 elif(self.settings.v_type == 3):
                     self.vehicle = Car(self)
+                    self.settings.v_type == 3
                 elif(self.settings.v_type == 4):
                     self.vehicle = Plane(self)
+                    self.settings.v_type == 4
                 elif(self.settings.v_type == 5):
                     self.vehicle = Rocket(self)
+                    self.settings.v_type == 5
             self.clock.tick(self.settings.frame_rate)
             self.settings.frame_count += 1
 
