@@ -53,10 +53,9 @@ class Vehicle(pygame.sprite.Sprite):
     def fly(self, shadow, image):
         if(self.settings.v_type != 4 and self.settings.v_type != 5):
             return
-        #print("fly choice =" + str(self.fly_choice))
         if(self.fuel > 0 and self.fly_choice == 1):
             if self.scale_i < 20:
-                pygame.transform.scale(self.image, (116*self.scale_i,116*self.scale_i))
+                self.image = pygame.transform.scale(self.image, (116*self.scale_i,116*self.scale_i))
                 self.scale_i += 1
                 return
             if(self.fly_i == 0): 
