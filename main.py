@@ -182,34 +182,35 @@ class Goat_Upgrader:
         pygame.display.flip()
 
     def collisions(self):
+        if(self.vehicle.fuel <= 0 or self.vehicle.fly_choice == 0):
+            if (len(self.enemies) > 0):
+                for i in range(0, len(self.enemies)):
+                    if self.vehicle.rect.colliderect(self.enemies[i]):
+                        self.settings.health -= self.enemies[i].damage
+                        if self.settings.health > 0:
+                            self.enemies[i].damage = 0
+                            self.vehicle.play_hurt_sound()
+                        else:
+                            self.vehicle.play_dead_sound()
 
-        if (len(self.enemies) > 0):
-            for i in range(0, len(self.enemies)):
-                if self.vehicle.rect.colliderect(self.enemies[i]):
-                    self.settings.health -= self.enemies[i].damage
-                    if self.settings.health > 0:
-                        self.enemies[i].damage = 0
-                        self.vehicle.play_hurt_sound()
-                    else:
-                        self.vehicle.play_dead_sound()
+            if (len(self.obstacles) > 0):
+                for i in self.obstacles.copy():
+                    if self.vehicle.rect.colliderect(i):
+                        self.settings.health -= i.damage
+                        if self.settings.health > 0:
+                            self.vehicle.play_hurt_sound()
+                        else:
+                            self.vehicle.play_dead_sound()
+                        self.obstacles.remove(i)
 
-        if (len(self.obstacles) > 0):
-            for i in self.obstacles.copy():
-                if self.vehicle.rect.colliderect(i):
-                    self.settings.health -= i.damage
-                    if self.settings.health > 0:
-                        self.vehicle.play_hurt_sound()
-                    else:
-                        self.vehicle.play_dead_sound()
-                    self.obstacles.remove(i)
-
-        if (len(self.coins) > 0):
-            for i in self.coins.copy():
-                if self.vehicle.rect.colliderect(i):
-                    self.settings.coin_count += 1
-                    self.score.coin_score += 50
-                    self.coins.remove(i)
-                    pygame.mixer.Sound.play(pygame.mixer.Sound("sounds/coin.ogg"))
+            if (len(self.coins) > 0):
+                for i in self.coins.copy():
+                    if self.vehicle.rect.colliderect(i):
+                        self.settings.coin_count += 1
+                        self.score.coin_score += 50
+                        self.coins.remove(i)
+                        pygame.mixer.Sound.play(pygame.mixer.Sound("sounds/coin.ogg"))
+        else: return
 
     def get_input(self):
         
