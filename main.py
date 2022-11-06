@@ -95,6 +95,9 @@ class Goat_Upgrader:
         self.road.update()
 
     def make_enemies_and_obstacles(self):
+
+        if self.settings.frame_count == 1800:
+            self.settings.obstacle_spawn_rate = 1
         
         if self.settings.frame_count % self.settings.obstacle_spawn_rate == 0:
             i = random.randint(0, 18)

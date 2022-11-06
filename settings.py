@@ -14,7 +14,7 @@ class Settings:
         self.default_bg_color = (86,125,70)
         self.default_obstacle_spawn_rate = 30
         self.default_coin_spawn_rate = 250
-        self.width = 1500
+        self.width = 1500 
         self.height = 1000
 
         self.goat_speed_vert = 8
