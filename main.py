@@ -178,6 +178,7 @@ class Goat_Upgrader:
             i.blit()
         self.score.update()
         self.health_bar.update()
+        self.vehicle.fuel_gauge(self)
 
         pygame.display.flip()
 
@@ -347,7 +348,7 @@ class Goat_Upgrader:
             if(self.settings.v_type == 4): self.vehicle.fly(pygame.image.load("sprites/plane.bmp"),pygame.image.load("sprites/planeShadow.bmp"))
             if(self.settings.v_type == 5): self.vehicle.fly(pygame.image.load("sprites/rocket.bmp"),pygame.image.load("sprites/rocketShadow.bmp"))
             self.draw()
-            self.collisions()
+            if(self.fuel <= 0 or self.fly_choice == 0): self.collisions()
             if self.settings.health <= 0:
                
                 self.vehicle.image = pygame.image.load("sprites/bomb1.bmp")
