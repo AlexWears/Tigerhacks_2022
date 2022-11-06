@@ -280,11 +280,11 @@ class Goat_Upgrader:
 
         self.start_txt = self.font.render("Press the button or [Enter] to start.", True, self.text_color)
         self.s_txt_rect = self.start_txt.get_rect()
-        self.s_txt_rect.center = (self.settings.width/2, self.settings.height-75)
+        self.s_txt_rect.center = (self.settings.width/2, self.settings.height-70)
 
         self.instructions = self.font.render("Press [Esc] to exit.", True, self.text_color)
         self.inst_rect = self.instructions.get_rect()
-        self.inst_rect.center = (self.settings.width/2, self.settings.height-30)
+        self.inst_rect.center = (self.settings.width/2, self.settings.height-25)
 
         self.screen.blit(self.start_txt, self.s_txt_rect)
         self.screen.blit(self.instructions, self.inst_rect)
