@@ -9,4 +9,3 @@ class CryptoAPI:
 
     def get_DeSo_price():
         return cryptocompare.get_price('DESO', currency='USD', full=False).pop("DESO").pop('USD')
-

@@ -32,5 +32,3 @@ class Button:
         self.rect.center = (-100, -100)
         self.msg_image_rect.center = (-100, -100)
         self.draw_button()
-
-

@@ -151,8 +151,6 @@ class Shop:
         self.usd = self.settings.coin_count * self.settings.deso_conv
         while self.settings.health <= 0:
 
-            
-
             self.screen.fill(self.settings.shop_color)
 
             self.screen.blit(self.train_img, self.train_rect)
@@ -213,15 +211,3 @@ class Shop:
                         return 
 
             pygame.display.flip()
-
-            
-        
-        
-
-
-
-
-
-
-    
-
