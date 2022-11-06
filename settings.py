@@ -55,6 +55,7 @@ class Settings:
         self.health = 100
 
         self.coin_count = 0
+        self.high_score = 0
 
     # Environment Settings
 

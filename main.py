@@ -24,6 +24,7 @@ from shop import Shop
 from plane import Plane
 from train import Train
 from rocket import Rocket
+from score import Score
  
 class JimRs_Garage:
 
@@ -51,6 +52,7 @@ class JimRs_Garage:
         self.coins = pygame.sprite.Group()
         self.obstacles = pygame.sprite.Group()
         self.coins = pygame.sprite.Group()
+        self.score = Score(self)
 
         self.coinCount = 0 #initialize player coin count
 
@@ -138,6 +140,7 @@ class JimRs_Garage:
         self.vehicle.update()
         self.deso.update()
         self.start_button.draw_button()
+        self.score.update()
 
         pygame.display.flip()
 
@@ -158,6 +161,7 @@ class JimRs_Garage:
             for i in self.coins.copy():
                 if self.vehicle.rect.colliderect(i):
                     self.settings.coin_count += 1
+                    self.score.coin_score += 50
                     self.coins.remove(i)
 
     def get_input(self):
@@ -223,6 +227,7 @@ class JimRs_Garage:
             self.collisions()
             if self.settings.health <= 0:
                 self.clear_screen()
+                self.score.check_high_score()
                 self.shop.load(self)
                 if(self.settings.v_type == 0):
                     self.vehicle = Goat(self)
