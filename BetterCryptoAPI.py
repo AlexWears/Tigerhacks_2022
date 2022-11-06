@@ -8,4 +8,11 @@ cryptocompare.cryptocompare._set_api_key_parameter("ab505607f96675cb996706983700
 class CryptoAPI:
 
     def get_DeSo_price():
-        return cryptocompare.get_price('DESO', currency='USD', full=False).pop("DESO").pop('USD')
+        price = 0
+
+        try:
+            price = cryptocompare.get_price('DESO', currency='USD', full=False).pop("DESO").pop('USD')
+        except:
+            price = 14
+
+        return price
