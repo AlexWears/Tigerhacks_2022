@@ -52,29 +52,25 @@ class Vehicle(pygame.sprite.Sprite):
 
     def fly(self, shadow, image):
         if(self.settings.v_type != 4 and self.settings.v_type != 5):
-            print("here")
-            print(self.settings.v_type)
             return
-        print("fly choice =" + str(self.fly_choice))
+        #print("fly choice =" + str(self.fly_choice))
         if(self.fuel > 0 and self.fly_choice == 1):
-            print("inside")
             if self.scale_i < 20:
                 pygame.transform.scale(self.image, (116*self.scale_i,116*self.scale_i))
                 self.scale_i += 1
-                print("iterator =" + str(self.scale_i))
+                #print("iterator =" + str(self.scale_i))
                 return
             if(self.fly_i == 0): 
                 self.image = pygame.image.load(shadow)
                 self.fly_i += 1
-                print("fly_i = " + str(self.fly_i))
+                #print("fly_i = " + str(self.fly_i))
             self.fuel -= 1
-            print("fuel =" + str(self.fuel))
+            #print("fuel =" + str(self.fuel))
             if(self.fuel <= 0):
                 self.image = image
                 self.fly_i = 0
                 self.scale_i = 1
                 self.fly_choice = 0
-        print("nothing")
         return
             
 
