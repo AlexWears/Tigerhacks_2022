@@ -2,11 +2,12 @@ import sys
 import pygame
 from settings import Settings
 
-class Vehicle:
+class Vehicle(pygame.sprite.Sprite):
 
     pygame.mixer.init()
 
     def __init__(self, JimRs_Garage):
+        super().__init__()
         self.settings = JimRs_Garage.settings
         self.screen = JimRs_Garage.screen
         self.screen_rect = JimRs_Garage.screen.get_rect()
