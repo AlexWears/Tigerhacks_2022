@@ -15,6 +15,7 @@ class Vehicle(pygame.sprite.Sprite):
         self.scale_i = 1
         self.fly_i = 0
         self.fuel = 0
+        self.max_fuel = 0
         self.fly_choice = False
         
         self.rect = self.image.get_rect()
