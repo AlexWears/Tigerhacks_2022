@@ -97,6 +97,14 @@ class Goat_Upgrader:
     def make_enemies_and_obstacles(self):
 
         if self.settings.frame_count == 1800:
+            self.settings.obstacle_spawn_rate -= 49
+        elif self.settings.frame_count == 3600:
+            self.settings.obstacle_spawn_rate = 1
+        elif self.settings.frame_count == 5400:
+            self.settings.obstacle_spawn_rate = 1
+        elif self.settings.frame_count == 7200:
+            self.settings.obstacle_spawn_rate = 1
+        elif self.settings.frame_count == 9000:
             self.settings.obstacle_spawn_rate = 1
         
         if self.settings.frame_count % self.settings.obstacle_spawn_rate == 0:
