@@ -14,6 +14,8 @@ class HealthBar(pygame.sprite.Sprite):
 
     def initialize(self):
         
+        self.health = self.settings.health
+
         #initial health bar
         self.height1 = 50
         self.width1 = (self.health * 5)
