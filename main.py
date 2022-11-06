@@ -97,7 +97,20 @@ class Goat_Upgrader:
     def make_enemies_and_obstacles(self):
 
         if self.settings.frame_count == 1800:
-            self.settings.obstacle_spawn_rate = 1
+            self.settings.obstacle_spawn_rate -= 5
+            self.settings.coin_spawn_rate -= 30
+        elif self.settings.frame_count == 3600:
+            self.settings.obstacle_spawn_rate -= 5
+            self.settings.coin_spawn_rate -= 30
+        elif self.settings.frame_count == 5400:
+            self.settings.obstacle_spawn_rate -= 5
+            self.settings.coin_spawn_rate -= 30
+        elif self.settings.frame_count == 7200:
+            self.settings.obstacle_spawn_rate -= 5
+            self.settings.coin_spawn_rate -= 30
+        elif self.settings.frame_count == 9000:
+            self.settings.obstacle_spawn_rate -= 5
+            self.settings.coin_spawn_rate -= 30
         
         if self.settings.frame_count % self.settings.obstacle_spawn_rate == 0:
             i = random.randint(0, 18)
