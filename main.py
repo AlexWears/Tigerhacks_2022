@@ -115,7 +115,7 @@ class Goat_Upgrader:
         if self.settings.frame_count % self.settings.obstacle_spawn_rate == 0 or self.settings.frame_count % self.settings.obstacle_spawn_rate == 1:
             i = random.randint(0, 18)
 
-            if 0 <= (i % 18) <= 2:
+            if 0 <= (i % 18) <= 1:
                 self.enemies.append(Enemy(self, self.vehicle))
             elif 3 <= (i % 18) < 5:
                 self.obstacles.add(CarObst(self, "sprites/evilCar.bmp"))
@@ -322,7 +322,7 @@ class Goat_Upgrader:
                 self.screen.blit(self.vehicle.image, self.vehicle.rect)
                 pygame.display.update()
     
-                pygame.time.wait(1300)
+                pygame.time.wait(1000)
                 
                 self.vehicle.image = pygame.image.load("sprites/bomb2.bmp")
                 x = self.vehicle.rect.midbottom
@@ -332,7 +332,7 @@ class Goat_Upgrader:
                 self.screen.blit(self.vehicle.image, self.vehicle.rect)
                 pygame.display.update()
 
-                pygame.time.wait(1300)
+                pygame.time.wait(1000)
 
                 self.vehicle.image = pygame.image.load("sprites/bomb3.bmp")
                 x = self.vehicle.rect.midbottom
@@ -342,7 +342,7 @@ class Goat_Upgrader:
                 self.screen.blit(self.vehicle.image, self.vehicle.rect)
                 pygame.display.update()
 
-                pygame.time.wait(1300)
+                pygame.time.wait(1000)
 
                 self.clear_screen()
                 self.score.check_high_score()
