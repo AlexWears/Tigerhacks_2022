@@ -75,7 +75,7 @@ class Settings:
         self.deso_conv = 0
         self.shop_color = (174, 176, 181)
 
-        self.train_cost = 1
-        self.car_cost = 1
-        self.plane_cost = 1
-        self.rocket_cost = 1
+        self.train_cost = 50
+        self.car_cost = 75
+        self.plane_cost = 100
+        self.rocket_cost = 125
