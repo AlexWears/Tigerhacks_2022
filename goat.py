@@ -28,6 +28,9 @@ class Goat(Vehicle):
         pygame.mixer.Sound.play(self.hurt_sound)
 
     def play_dead_sound(self):
-
-        self.dead_sound = pygame.mixer.Sound("sounds/goatdead.ogg")
-        pygame.mixer.Sound.play(self.dead_sound)
+        if self.settings.v_type == 1:
+            self.dead_sound = pygame.mixer.Sound("sounds/goatdead.ogg")
+            pygame.mixer.Sound.play(self.dead_sound)
+        else:
+            self.dead_sound = pygame.mixer.Sound("sounds/jgoatdead.ogg")
+            pygame.mixer.Sound.play(self.dead_sound)
