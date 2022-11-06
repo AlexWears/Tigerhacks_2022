@@ -54,20 +54,25 @@ class Vehicle(pygame.sprite.Sprite):
         if(self.settings.v_type != 4 and self.settings.v_type != 5):
             return
         if(self.fuel > 0 and self.fly_choice):
-            if self.scale_i < 20:
+            if self.scale_i < 20 and self.fly_i == 0:
                 self.image = pygame.transform.scale(self.image, (116*self.scale_i,116*self.scale_i))
                 self.scale_i += 1
                 return
             if(self.fly_i == 0): 
                 self.image = shadow
-                self.fly_i += 1
+                self.fly_i = 1
             self.fuel -= 1
             self.update_fuel()
-            if(self.fuel <= 0):
-                self.image = image
-                self.fly_i = 0
-                self.scale_i = 1
-                self.fly_choice = False
+        if(self.fuel <= 0):
+            self.image = image
+            if self.scale_i > 1 and self.fly_i:
+                self.image = pygame.transform.scale(self.image, (116*self.scale_i,116*self.scale_i))
+                self.scale_i -= 1
+                return
+            self.image = image
+            self.fly_i = 0
+            self.scale_i = 1
+            self.fly_choice = False
         return
 
     def fuel_gauge(self, Goat_Upgrader):
