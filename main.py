@@ -25,6 +25,7 @@ from plane import Plane
 from train import Train
 from rocket import Rocket
 from score import Score
+from healthbar import HealthBar
  
 class JimRs_Garage:
 
@@ -53,6 +54,7 @@ class JimRs_Garage:
         self.obstacles = pygame.sprite.Group()
         self.coins = pygame.sprite.Group()
         self.score = Score(self)
+        self.health_bar = HealthBar(self)
 
         self.coinCount = 0 #initialize player coin count
 
@@ -141,6 +143,7 @@ class JimRs_Garage:
         self.deso.update()
         self.start_button.draw_button()
         self.score.update()
+        self.health_bar.update()
 
         pygame.display.flip()
 

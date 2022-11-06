@@ -52,7 +52,7 @@ class Settings:
         self.speed_vert = 10
         self.speed_hor = 15
 
-        self.health = 100
+        self.health = 150
 
         self.coin_count = 0
         self.high_score = 0
