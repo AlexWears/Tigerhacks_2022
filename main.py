@@ -247,7 +247,7 @@ class Goat_Upgrader:
 
 
     def _check_start_button(self, mouse_pos):
-        if(self.start_button.rect.  point(mouse_pos)):
+        if(self.start_button.rect.collidepoint(mouse_pos)):
             self.settings.game_start = True
 
     def clear_screen(self):
@@ -281,11 +281,11 @@ class Goat_Upgrader:
 
         self.start_txt = self.font.render("Press the button or [Enter] to start.", True, self.text_color)
         self.s_txt_rect = self.start_txt.get_rect()
-        self.s_txt_rect.center = (self.settings.width/2, self.settings.height-75)
+        self.s_txt_rect.center = (self.settings.width/2, self.settings.height-70)
 
         self.instructions = self.font.render("Press [Esc] to exit.", True, self.text_color)
         self.inst_rect = self.instructions.get_rect()
-        self.inst_rect.center = (self.settings.width/2, self.settings.height-30)
+        self.inst_rect.center = (self.settings.width/2, self.settings.height-25)
 
         self.screen.blit(self.start_txt, self.s_txt_rect)
         self.screen.blit(self.instructions, self.inst_rect)
@@ -302,9 +302,6 @@ class Goat_Upgrader:
 
         h = 4
         while h>0:
-            self.draw()
-            self.screen.fill((120,30,20))
-            self.start_button.draw_button()
             self.start_image = pygame.image.load("sprites/titleScreenLaugh.bmp")
             self.start_image_rect = self.start_image.get_rect()
             self.start_image_rect.bottomleft = (0,0)
@@ -312,10 +309,7 @@ class Goat_Upgrader:
             self.screen.blit(self.start_image, self.start_image_rect)
             pygame.display.update()
 
-            pygame.time.wait(500)
-            self.draw()
-            self.screen.fill((120,30,20))
-            self.start_button.draw_button()
+            pygame.time.wait(200)
             self.start_image = pygame.image.load("sprites/titleScreen.bmp")
             self.start_image_rect = self.start_image.get_rect()
             self.start_image_rect.bottomleft = (0,0)
@@ -323,8 +317,8 @@ class Goat_Upgrader:
             self.screen.blit(self.start_image, self.start_image_rect)
             pygame.display.update()
 
-            pygame.time.wait(500)
-            h += 1
+            pygame.time.wait(200)
+            h -= 1
 
         while self.settings.game_start == False:
             for event in pygame.event.get():
