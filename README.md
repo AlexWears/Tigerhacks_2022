@@ -4,3 +4,7 @@ Hello
 hi
 hey
 sup
+
+Dependencies:
+pygame
+cryptocompare
