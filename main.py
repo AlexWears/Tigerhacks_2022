@@ -246,7 +246,7 @@ class Goat_Upgrader:
 
 
     def _check_start_button(self, mouse_pos):
-        if(self.start_button.rect.  point(mouse_pos)):
+        if(self.start_button.rect.collidepoint(mouse_pos)):
             self.settings.game_start = True
 
     def clear_screen(self):
@@ -301,6 +301,9 @@ class Goat_Upgrader:
 
         h = 4
         while h>0:
+            self.draw()
+            self.screen.fill((120,30,20))
+            self.start_button.draw_button()
             self.start_image = pygame.image.load("sprites/titleScreenLaugh.bmp")
             self.start_image_rect = self.start_image.get_rect()
             self.start_image_rect.bottomleft = (0,0)
@@ -308,7 +311,10 @@ class Goat_Upgrader:
             self.screen.blit(self.start_image, self.start_image_rect)
             pygame.display.update()
 
-            pygame.time.wait(200)
+            pygame.time.wait(500)
+            self.draw()
+            self.screen.fill((120,30,20))
+            self.start_button.draw_button()
             self.start_image = pygame.image.load("sprites/titleScreen.bmp")
             self.start_image_rect = self.start_image.get_rect()
             self.start_image_rect.bottomleft = (0,0)
@@ -316,10 +322,8 @@ class Goat_Upgrader:
             self.screen.blit(self.start_image, self.start_image_rect)
             pygame.display.update()
 
-            pygame.time.wait(200)
-            h -= 1
-        
-        
+            pygame.time.wait(500)
+            h += 1
 
         while self.settings.game_start == False:
             for event in pygame.event.get():
