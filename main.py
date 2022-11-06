@@ -193,6 +193,8 @@ class JimRs_Garage:
                         self.settings.moving_left = True
                     elif key == pygame.K_RIGHT or key == pygame.K_d:
                         self.settings.moving_right = True
+                    elif key == pygame.K_SPACE:
+                        self.vehicle.fly_choice = 1
                     elif key == pygame.K_ESCAPE:
                         sys.exit()
 
@@ -206,6 +208,7 @@ class JimRs_Garage:
                         self.settings.moving_left = False
                     elif key == pygame.K_RIGHT or key == pygame.K_d:
                         self.settings.moving_right = False
+
 
     def _check_start_button(self, mouse_pos):
         if(self.start_button.rect.collidepoint(mouse_pos)):
@@ -275,6 +278,7 @@ class JimRs_Garage:
         while self.settings.game_start == True:
 
             self.get_input()
+            self.vehicle.fly(pygame.image.load("sprites/plane.bmp"))
             self.draw()
             self.collisions()
             if self.settings.health <= 0:

@@ -12,6 +12,10 @@ class Vehicle:
         self.screen_rect = JimRs_Garage.screen.get_rect()
         self.image = pygame.image.load("sprites/thing.bmp")
         self.health = self.settings.health
+        self.scale_i = 1
+        self.fly_i = 0
+        self.fuel = 0
+        self.fly_choice = 0
         
         self.rect = self.image.get_rect()
 
@@ -45,4 +49,32 @@ class Vehicle:
 
         self.dead_sound = pygame.mixer.Sound("sounds/goatdead.ogg")
         pygame.mixer.Sound.play(self.dead_sound)
+
+    def fly(self, image):
+        if(self.settings.v_type != 4 and self.settings.v_type != 5):
+            print("here")
+            print(self.settings.v_type)
+            return
+        print("fly choice =" + str(self.fly_choice))
+        if(self.fuel > 0 and self.fly_choice == 1):
+            print("inside")
+            if self.scale_i < 20:
+                pygame.transform.scale(self.image, (116*self.scale_i,116*self.scale_i))
+                self.scale_i += 1
+                print("iterator =" + str(self.scale_i))
+                return
+            if(self.fly_i == 0): 
+                self.image = pygame.image.load("sprites/thing.bmp")
+                self.fly_i += 1
+                print("fly_i = " + str(self.fly_i))
+            self.fuel -= 1
+            print("fuel =" + str(self.fuel))
+            if(self.fuel <= 0):
+                self.image = image
+                self.fly_i = 0
+                self.scale_i = 1
+                self.fly_choice = 0
+        print("nothing")
+        return
+            
 
