@@ -18,3 +18,13 @@ class Train(Vehicle):
     def blit_train(self):
 
         self.screen.blit(self.image, self.rect)
+
+    def play_hurt_sound(self):
+
+        self.hurt_sound = pygame.mixer.Sound("sounds/trainhurt.ogg")
+        pygame.mixer.Sound.play(self.hurt_sound)
+
+    def play_dead_sound(self):
+
+        self.dead_sound = pygame.mixer.Sound("sounds/traindead.ogg")
+        pygame.mixer.Sound.play(self.dead_sound)

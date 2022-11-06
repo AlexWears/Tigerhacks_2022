@@ -129,6 +129,9 @@ class Shop:
 
     def load(self, JimRs_Garage):
 
+        pygame.mixer.init()
+        pygame.mixer.music.load("sounds/shop_music.ogg")
+        pygame.mixer.music.play(-1)
         self._create_stuff()
         self.usd = self.settings.coin_count * self.settings.deso_conv
         while self.settings.health <= 0:
@@ -179,6 +182,7 @@ class Shop:
                         self.settings.v_type = 0
                         self.settings.health = 100
                         self._reset_directions()
+                        JimRs_Garage.start_music()
                         return
                     elif key == pygame.K_c:
                         print(str(self.coins))
@@ -187,6 +191,7 @@ class Shop:
                         self.settings.v_type = 1
                         self.settings.health = 100
                         self._reset_directions()
+                        JimRs_Garage.start_music()
                         return 
                     
 
