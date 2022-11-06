@@ -182,34 +182,35 @@ class Goat_Upgrader:
         pygame.display.flip()
 
     def collisions(self):
+        if(self.vehicle.fuel <= 0 or self.vehicle.fly_choice == 0):
+            if (len(self.enemies) > 0):
+                for i in range(0, len(self.enemies)):
+                    if self.vehicle.rect.colliderect(self.enemies[i]):
+                        self.settings.health -= self.enemies[i].damage
+                        if self.settings.health > 0:
+                            self.enemies[i].damage = 0
+                            self.vehicle.play_hurt_sound()
+                        else:
+                            self.vehicle.play_dead_sound()
 
-        if (len(self.enemies) > 0):
-            for i in range(0, len(self.enemies)):
-                if self.vehicle.rect.colliderect(self.enemies[i]):
-                    self.settings.health -= self.enemies[i].damage
-                    if self.settings.health > 0:
-                        self.enemies[i].damage = 0
-                        self.vehicle.play_hurt_sound()
-                    else:
-                        self.vehicle.play_dead_sound()
+            if (len(self.obstacles) > 0):
+                for i in self.obstacles.copy():
+                    if self.vehicle.rect.colliderect(i):
+                        self.settings.health -= i.damage
+                        if self.settings.health > 0:
+                            self.vehicle.play_hurt_sound()
+                        else:
+                            self.vehicle.play_dead_sound()
+                        self.obstacles.remove(i)
 
-        if (len(self.obstacles) > 0):
-            for i in self.obstacles.copy():
-                if self.vehicle.rect.colliderect(i):
-                    self.settings.health -= i.damage
-                    if self.settings.health > 0:
-                        self.vehicle.play_hurt_sound()
-                    else:
-                        self.vehicle.play_dead_sound()
-                    self.obstacles.remove(i)
-
-        if (len(self.coins) > 0):
-            for i in self.coins.copy():
-                if self.vehicle.rect.colliderect(i):
-                    self.settings.coin_count += 1
-                    self.score.coin_score += 50
-                    self.coins.remove(i)
-                    pygame.mixer.Sound.play(pygame.mixer.Sound("sounds/coin.ogg"))
+            if (len(self.coins) > 0):
+                for i in self.coins.copy():
+                    if self.vehicle.rect.colliderect(i):
+                        self.settings.coin_count += 1
+                        self.score.coin_score += 50
+                        self.coins.remove(i)
+                        pygame.mixer.Sound.play(pygame.mixer.Sound("sounds/coin.ogg"))
+        else: return
 
     def get_input(self):
         
@@ -291,8 +292,38 @@ class Goat_Upgrader:
         pygame.mixer.init()
         pygame.mixer.music.load('sounds/titleMusic.ogg')
         pygame.mixer.music.play(-1)
+        self.evil_laugh = pygame.mixer.Sound("sounds/evil_goat_laugh.ogg")
+        pygame.mixer.Sound.play(self.evil_laugh)
 
         pygame.display.update()
+        
+        pygame.time.wait(500)
+
+        h = 4
+        while h>0:
+            self.draw()
+            self.screen.fill((120,30,20))
+            self.start_button.draw_button()
+            self.start_image = pygame.image.load("sprites/titleScreenLaugh.bmp")
+            self.start_image_rect = self.start_image.get_rect()
+            self.start_image_rect.bottomleft = (0,0)
+            self.start_image_rect.center = self.screen.get_rect().center
+            self.screen.blit(self.start_image, self.start_image_rect)
+            pygame.display.update()
+
+            pygame.time.wait(500)
+            self.draw()
+            self.screen.fill((120,30,20))
+            self.start_button.draw_button()
+            self.start_image = pygame.image.load("sprites/titleScreen.bmp")
+            self.start_image_rect = self.start_image.get_rect()
+            self.start_image_rect.bottomleft = (0,0)
+            self.start_image_rect.center = self.screen.get_rect().center
+            self.screen.blit(self.start_image, self.start_image_rect)
+            pygame.display.update()
+
+            pygame.time.wait(500)
+            h += 1
 
         while self.settings.game_start == False:
             for event in pygame.event.get():
