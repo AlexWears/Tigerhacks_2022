@@ -66,7 +66,7 @@ class Settings:
         self.road_width = 0
         self.road_left = 0
         
-        self.enemy_goat_speed = 3
+        self.enemy_goat_speed = 4
         self.obstacle_spawn_rate = self.default_obstacle_spawn_rate
         self.coin_spawn_rate = self.default_coin_spawn_rate
 

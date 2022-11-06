@@ -112,7 +112,7 @@ class Goat_Upgrader:
             self.settings.obstacle_spawn_rate -= 5
             self.settings.coin_spawn_rate -= 30
         
-        if self.settings.frame_count % self.settings.obstacle_spawn_rate == 0:
+        if self.settings.frame_count % self.settings.obstacle_spawn_rate == 0 or self.settings.frame_count % self.settings.obstacle_spawn_rate == 1:
             i = random.randint(0, 18)
 
             if 0 <= (i % 18) <= 2:
