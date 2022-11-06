@@ -55,6 +55,7 @@ class Goat_Upgrader:
         self.coins = pygame.sprite.Group()
         self.score = Score(self)
         self.health_bar = HealthBar(self)
+        self.vehicle.fuel_gauge(self)
 
         self.coinCount = 0 #initialize player coin count
 
@@ -160,6 +161,7 @@ class Goat_Upgrader:
         self.start_button.draw_button()
         self.score.update()
         self.health_bar.update()
+        if(self.vehicle.fuel <= 0 or self.vehicle.fly_choice == 0): self.vehicle.update_fuel()
 
         pygame.display.flip()
 
@@ -178,7 +180,7 @@ class Goat_Upgrader:
             i.blit()
         self.score.update()
         self.health_bar.update()
-        self.vehicle.fuel_gauge(self)
+        if(self.vehicle.fuel <= 0 or self.vehicle.fly_choice == 0): self.vehicle.update_fuel()
 
         pygame.display.flip()
 
