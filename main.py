@@ -244,6 +244,10 @@ class JimRs_Garage:
         self.inst_rect.center = (self.settings.width/2, self.settings.height-30)
         self.screen.blit(self.instructions, self.inst_rect)
 
+        pygame.mixer.init()
+        pygame.mixer.music.load('sounds/titleMusic.ogg')
+        pygame.mixer.music.play(-1)
+
         pygame.display.update()
 
         while self.settings.game_start == False:
