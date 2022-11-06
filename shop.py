@@ -21,6 +21,7 @@ class Shop:
 
     def _create_stuff(self):
 
+        #Set train picture, name, price and buy button
         self.train_img = pygame.image.load("sprites/train.bmp")
         self.train_rect = self.train_img.get_rect()
         self.train_rect.center = (200, 150)
@@ -32,7 +33,7 @@ class Shop:
         self.train_price_rect.center = (800, 150)
         self.train_button = Button(self, "Buy", 30, self.text_color, 100, 50, self.button_color, 1000, 150)
         
-
+        #Set car picture, name, price, and buy button
         self.car_img = pygame.image.load("sprites/car.bmp")
         self.car_rect = self.car_img.get_rect()
         self.car_rect.center = (200, 350)
@@ -44,6 +45,7 @@ class Shop:
         self.car_price_rect.center = (800, 350)
         self.car_button = Button(self, "Buy", 30, self.text_color, 100, 50, self.button_color, 1000, 350)
 
+        #Set plane picture, name, price, and buy button
         self.plane_img = pygame.image.load("sprites/plane.bmp")
         self.plane_rect = self.plane_img.get_rect()
         self.plane_rect.center = (200, 500)
@@ -55,6 +57,7 @@ class Shop:
         self.plane_price_rect.center = (800, 500)
         self.plane_button = Button(self, "Buy", 30, self.text_color, 100, 50, self.button_color, 1000, 500)
 
+        #Set rocket picture, name, price, and buy button
         self.rocket_img = pygame.image.load("sprites/rocket.bmp")
         self.rocket_rect = self.rocket_img.get_rect()
         self.rocket_rect.center = (200, 700)
@@ -66,18 +69,22 @@ class Shop:
         self.rocket_price_rect.center = (800, 700)
         self.rocket_button = Button(self, "Buy", 30, self.text_color, 100, 50, self.button_color, 1000, 700)
 
+        #Set death recap text
         self.death_recap = self.font.render("Click here for a death recap.", True, self.text_color)
         self.dr_rect = self.death_recap.get_rect()
         self.dr_rect.center = (self.settings.width/2, self.settings.height-30)
 
+        #Set coin count text in upper right corner
         self.coin_text = self.font.render(str(self.settings.coin_count)+" DeSo", True, self.text_color)
         self.coin_text_rect = self.coin_text.get_rect()
         self.coin_text_rect.topright = (self.settings.width - 15, 10)
 
+        #Set conversion to USD in upper right corner
         self.usd_text = self.font.render("$"+str(self.settings.coin_count * self.settings.deso_conv), True, self.text_color)
         self.usd_text_rect = self.usd_text.get_rect()
         self.usd_text_rect.topright = (self.settings.width - 15, 50)
 
+    #Check if train buy button was pressed
     def _check_train_button(self, mouse_pos):
         if(self.train_button.rect.collidepoint(mouse_pos)):
             if(self.usd >= self.settings.train_cost):
@@ -87,8 +94,9 @@ class Shop:
             else:
                 self.settings.v_type = 1
             self.settings.health = 150
-            self._reset_directions()
+            self._reset_stuff()
 
+    #Check if car buy button was pressed
     def _check_car_button(self, mouse_pos):
         if(self.car_button.rect.collidepoint(mouse_pos)):
             if(self.usd >= self.settings.car_cost):
@@ -98,8 +106,9 @@ class Shop:
             else:
                 self.settings.v_type = 1
             self.settings.health = 150
-            self._reset_directions()
+            self._reset_stuff()
 
+    #Check if plane buy button was pressed
     def _check_plane_button(self, mouse_pos):
         if(self.plane_button.rect.collidepoint(mouse_pos)):
             if(self.usd >= self.settings.plane_cost):
@@ -109,8 +118,9 @@ class Shop:
             else:
                 self.settings.v_type = 1
             self.settings.health = 150
-            self._reset_directions()
+            self._reset_stuff()
 
+    #Check if rocket buy button was pressed
     def _check_rocket_button(self, mouse_pos):
         if(self.rocket_button.rect.collidepoint(mouse_pos)):
             if(self.usd >= self.settings.plane_cost):
@@ -120,13 +130,16 @@ class Shop:
             else:
                 self.settings.v_type = 1
             self.settings.health = 150
-            self._reset_directions()
+            self._reset_stuff()
 
-    def _reset_directions(self):
+    def _reset_stuff(self):
         self.settings.moving_up = False
         self.settings.moving_down = False
         self.settings.moving_left = False
         self.settings.moving_right = False
+        self.settings.obstacle_spawn_rate = self.settings.default_obstacle_spawn_rate
+        self.settings.coin_spawn_rate = self.settings.default_coin_spawn_rate
+        self.settings.env_speed = 5
 
     def load(self, Goat_Upgrader):
 
@@ -195,7 +208,7 @@ class Shop:
                     elif key == pygame.K_ESCAPE:
                         self.settings.v_type = 1
                         self.settings.health = 150
-                        self._reset_directions()
+                        self._reset_stuff()
                         Goat_Upgrader.start_music()
                         return 
 
