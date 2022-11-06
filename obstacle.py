@@ -12,6 +12,7 @@ class Obstacle(pygame.sprite.Sprite):
         self.image = pygame.image.load(image)
         self.rect = self.image.get_rect()
         self.rect.y = 0
+        self.damage = 40
         
     def blit_obstacle(self):
 

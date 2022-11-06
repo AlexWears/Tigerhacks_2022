@@ -162,6 +162,7 @@ class JimRs_Garage:
         if (len(self.obstacles) > 0):
             for i in self.obstacles.copy():
                 if self.vehicle.rect.colliderect(i):
+                    self.settings.health -= i.damage
                     if self.settings.health > 0:
                         self.vehicle.play_hurt_sound()
                     else:
