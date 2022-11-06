@@ -25,7 +25,6 @@ from plane import Plane
 from train import Train
 from rocket import Rocket
 from score import Score
-from sounds import Sounds
 from healthbar import HealthBar
  
 class JimRs_Garage:
