@@ -346,6 +346,9 @@ class Goat_Upgrader:
             self.draw()
             if(self.vehicle.fuel <= 0 or self.vehicle.fly_choice == 0): self.collisions()
             if self.settings.health <= 0:
+
+                pygame.mixer.init()
+                pygame.mixer.music.pause()
                
                 self.vehicle.image = pygame.image.load("sprites/bomb1.bmp")
                 x = self.vehicle.rect.midbottom

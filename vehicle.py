@@ -7,6 +7,7 @@ class Vehicle(pygame.sprite.Sprite):
     pygame.mixer.init()
 
     def __init__(self, Goat_Upgrader):
+        self.font = pygame.font.SysFont("Comic Sans MS", 30)
         self.settings = Goat_Upgrader.settings
         self.screen = Goat_Upgrader.screen
         self.screen_rect = Goat_Upgrader.screen.get_rect()
@@ -17,6 +18,10 @@ class Vehicle(pygame.sprite.Sprite):
         self.fuel = 0
         self.max_fuel = 0
         self.fly_choice = False
+
+        self.fb_text = self.font.render("Press [Space] to fly", True, (255,255,255))
+        self.fbt_rect = self.fb_text.get_rect()
+        self.fbt_rect.bottomleft = (55, self.settings.height-55)
         
         self.rect = self.image.get_rect()
 
@@ -100,9 +105,13 @@ class Vehicle(pygame.sprite.Sprite):
         self.BGcolor = (0, 0, 0)
         self.BG_rect.bottomleft = (45, self.settings.height - 45)
 
+        #Fuel Bar Text
+        
+
     def update_fuel(self):
         self.initialize_fuel()
         pygame.draw.rect(self.screen, self.BGcolor, self.BG_rect)
         pygame.draw.rect(self.screen, self.FBcolor, self.FB_rect)
+        self.screen.blit(self.fb_text, self.fbt_rect)
             
 
