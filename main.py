@@ -346,6 +346,9 @@ class Goat_Upgrader:
             self.draw()
             if(self.vehicle.fuel <= 0 or self.vehicle.fly_choice == 0): self.collisions()
             if self.settings.health <= 0:
+
+                pygame.mixer.init()
+                pygame.mixer.music.pause()
                
                 self.vehicle.image = pygame.image.load("sprites/bomb1.bmp")
                 x = self.vehicle.rect.midbottom
@@ -392,13 +395,6 @@ class Goat_Upgrader:
                     self.vehicle = Plane(self)
                 elif(self.settings.v_type == 5):
                     self.vehicle = Rocket(self)
-
-                
-                if (self.settings.v_type == 4) or (self.settings.v_type == 5):
-                    pygame.mixer.music.pause()
-                    fly_sound = pygame.mixer.Sound("sounds/fly.ogg")
-                    pygame.mixer.Sound.play(fly_sound)
-                    pygame.mixer.music.unpause()
 
             self.clock.tick(self.settings.frame_rate)
             self.settings.frame_count += 1
