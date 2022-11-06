@@ -256,6 +256,12 @@ class JimRs_Garage:
                     mouse_pos = pygame.mouse.get_pos()
                     self._check_start_button(mouse_pos)
                     self.start_button.move_button()
+                elif event.type == pygame.KEYDOWN:
+                    key = event.key
+                    if key == pygame.K_RETURN:
+                        self.settings.game_start = True
+                    elif key == pygame.K_ESCAPE:
+                        sys.exit()
 
         self.start_music()
 
