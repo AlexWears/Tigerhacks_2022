@@ -22,6 +22,7 @@ class Enemy:
 
         self.angle = 0
         self.speed = self.settings.enemy_goat_speed
+        self.damage = 50
 
 
     def blit_enemy(self):

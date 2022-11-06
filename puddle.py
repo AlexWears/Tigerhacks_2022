@@ -12,3 +12,5 @@ class Puddle(Obstacle):
 
         while self.rect.right > self.settings.road_left and self.rect.right < self.settings.road_left + self.settings.road_width:
             self.rect.x = random.randint(0, self.settings.width)
+
+        self.damage = 20
