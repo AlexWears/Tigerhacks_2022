@@ -393,13 +393,6 @@ class Goat_Upgrader:
                 elif(self.settings.v_type == 5):
                     self.vehicle = Rocket(self)
 
-                
-                if (self.self.settings.v_type == 4) or (self.settings.v_type == 5):
-                    pygame.mixer.music.pause()
-                    fly_sound = pygame.mixer.Sound("sounds/fly.ogg")
-                    pygame.mixer.Sound.play(fly_sound)
-                    pygame.mixer.music.unpause()
-
             self.clock.tick(self.settings.frame_rate)
             self.settings.frame_count += 1
 
