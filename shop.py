@@ -79,6 +79,8 @@ class Shop:
                 self.settings.v_type = 2
                 self.usd -= self.settings.train_cost
                 self.settings.coin_count -= self.settings.train_cost / self.settings.deso_conv
+            else:
+                self.settings.v_type = 1
             self.settings.health = 100
             self._reset_directions()
 
@@ -88,6 +90,8 @@ class Shop:
                 self.settings.v_type = 3
                 self.usd -= self.settings.car_cost
                 self.settings.coin_count -= self.settings.car_cost / self.settings.deso_conv
+            else:
+                self.settings.v_type = 1
             self.settings.health = 100
             self._reset_directions()
 
@@ -97,6 +101,8 @@ class Shop:
                 self.settings.v_type = 4
                 self.usd -= self.settings.plane_cost
                 self.settings.coin_count -= self.settings.plane_cost / self.settings.deso_conv
+            else:
+                self.settings.v_type = 1
             self.settings.health = 100
             self._reset_directions()
 
@@ -106,6 +112,8 @@ class Shop:
                 self.settings.v_type = 5
                 self.usd -= self.settings.plane_cost
                 self.settings.coin_count -= self.settings.plane_cost / self.settings.deso_conv
+            else:
+                self.settings.v_type = 1
             self.settings.health = 100
             self._reset_directions()
 
