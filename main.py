@@ -230,10 +230,6 @@ class JimRs_Garage:
         #Start menu
         self.draw()
         self.screen.fill((120,30,20))
-        self.main_image = pygame.image.load("sprites/titleScreen.bmp")
-        self.main_rect = self.main_image.get_rect()
-        self.main_rect.bottomleft = (self.settings.width/2,self.settings.height/2)
-        self.screen.blit(self.main_image, self.main_rect)
         self.start_button.draw_button()
         self.start_image = pygame.image.load("sprites/titleScreen.bmp")
         self.start_image_rect = self.start_image.get_rect()
