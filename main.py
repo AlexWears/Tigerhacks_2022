@@ -24,6 +24,7 @@ from shop import Shop
 from plane import Plane
 from train import Train
 from rocket import Rocket
+from sounds import Sounds
  
 class JimRs_Garage:
 
@@ -147,11 +148,19 @@ class JimRs_Garage:
             for i in range(0, len(self.enemies)):
                 if self.vehicle.rect.colliderect(self.enemies[i]):
                     self.settings.health -= 100
+                    if self.settings.health > 0:
+                        self.vehicle.play_hurt_sound()
+                    else:
+                        self.vehicle.play_dead_sound()
                     return
 
         if (len(self.obstacles) > 0):
             for i in self.obstacles.copy():
                 if self.vehicle.rect.colliderect(i):
+                    if self.settings.health > 0:
+                        self.vehicle.play_hurt_sound()
+                    else:
+                        self.vehicle.play_dead_sound()
                     self.obstacles.remove(i)
 
         if (len(self.coins) > 0):
@@ -202,10 +211,13 @@ class JimRs_Garage:
         self.obstacles.empty()
         self.road.clear_road()
 
-    def run_game(self):
+    @staticmethod
+    def start_music():
+        pygame.mixer.init()
+        pygame.mixer.music.load('sounds/goat_theme.ogg')
+        pygame.mixer.music.play(-1)
 
-        #pygame.mixer.music.load('sounds/goat_theme.ogg')
-        #pygame.mixer.music.play(-1)
+    def run_game(self):
 
         #Start menu
         self.draw()
@@ -217,7 +229,10 @@ class JimRs_Garage:
                     self._check_start_button(mouse_pos)
                     self.start_button.move_button()
 
+        self.start_music()
+
         while self.settings.game_start == True:
+
             self.get_input()
             self.draw()
             self.collisions()

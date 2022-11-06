@@ -4,6 +4,8 @@ from settings import Settings
 
 class Vehicle:
 
+    pygame.mixer.init()
+
     def __init__(self, JimRs_Garage):
         self.settings = JimRs_Garage.settings
         self.screen = JimRs_Garage.screen
@@ -33,3 +35,14 @@ class Vehicle:
             self.rect.y += self.settings.env_speed
     
         self.blit_vehicle()
+
+    def play_hurt_sound(self):
+
+        self.hurt_sound = pygame.mixer.Sound("sounds/goathurt.ogg")
+        pygame.mixer.Sound.play(self.hurt_sound)
+
+    def play_dead_sound(self):
+
+        self.dead_sound = pygame.mixer.Sound("sounds/goatdead.ogg")
+        pygame.mixer.Sound.play(self.dead_sound)
+

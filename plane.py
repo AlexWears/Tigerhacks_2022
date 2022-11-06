@@ -18,3 +18,13 @@ class Plane(Vehicle):
     def blit_plane(self):
 
         self.screen.blit(self.image, self.rect)
+
+    def play_hurt_sound(self):
+
+        self.hurt_sound = pygame.mixer.Sound("sounds/planehurt.ogg")
+        pygame.mixer.Sound.play(self.hurt_sound)
+
+    def play_dead_sound(self):
+
+        self.dead_sound = pygame.mixer.Sound("sounds/planedead.ogg")
+        pygame.mixer.Sound.play(self.dead_sound)

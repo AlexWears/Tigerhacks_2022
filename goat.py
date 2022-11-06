@@ -21,3 +21,13 @@ class Goat(Vehicle):
     def blit_goat(self):
         
         self.screen.blit(self.image, self.rect)
+
+    def play_hurt_sound(self):
+
+        self.hurt_sound = pygame.mixer.Sound("sounds/goathurt.ogg")
+        pygame.mixer.Sound.play(self.hurt_sound)
+
+    def play_dead_sound(self):
+
+        self.dead_sound = pygame.mixer.Sound("sounds/goatdead.ogg")
+        pygame.mixer.Sound.play(self.dead_sound)
