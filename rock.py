@@ -9,3 +9,5 @@ class Rock(Obstacle):
         super().__init__(JimRs_Garage, image)
 
         self.rect.x = random.randint(0, self.settings.width - self.rect.width)
+
+        self.damage = 45

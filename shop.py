@@ -81,7 +81,7 @@ class Shop:
                 self.settings.coin_count -= self.settings.train_cost / self.settings.deso_conv
             else:
                 self.settings.v_type = 1
-            self.settings.health = 100
+            self.settings.health = 150
             self._reset_directions()
 
     def _check_car_button(self, mouse_pos):
@@ -92,7 +92,7 @@ class Shop:
                 self.settings.coin_count -= self.settings.car_cost / self.settings.deso_conv
             else:
                 self.settings.v_type = 1
-            self.settings.health = 100
+            self.settings.health = 150
             self._reset_directions()
 
     def _check_plane_button(self, mouse_pos):
@@ -103,7 +103,7 @@ class Shop:
                 self.settings.coin_count -= self.settings.plane_cost / self.settings.deso_conv
             else:
                 self.settings.v_type = 1
-            self.settings.health = 100
+            self.settings.health = 150
             self._reset_directions()
 
     def _check_rocket_button(self, mouse_pos):
@@ -114,7 +114,7 @@ class Shop:
                 self.settings.coin_count -= self.settings.plane_cost / self.settings.deso_conv
             else:
                 self.settings.v_type = 1
-            self.settings.health = 100
+            self.settings.health = 150
             self._reset_directions()
 
     def _reset_directions(self):
@@ -178,7 +178,7 @@ class Shop:
                     key = event.key
                     if key == pygame.K_j:
                         self.settings.v_type = 0
-                        self.settings.health = 100
+                        self.settings.health = 150
                         self._reset_directions()
                         JimRs_Garage.start_music()
                         return
@@ -187,7 +187,7 @@ class Shop:
 
                     elif key == pygame.K_ESCAPE:
                         self.settings.v_type = 1
-                        self.settings.health = 100
+                        self.settings.health = 150
                         self._reset_directions()
                         JimRs_Garage.start_music()
                         return 

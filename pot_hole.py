@@ -9,3 +9,4 @@ class PotHole(Obstacle):
         super().__init__(JimRs_Garage, image)
 
         self.rect.x = random.randint(self.settings.road_left, self.settings.road_left + self.settings.road_width - self.rect.width)
+        self.damage = 20

@@ -152,12 +152,12 @@ class JimRs_Garage:
         if (len(self.enemies) > 0):
             for i in range(0, len(self.enemies)):
                 if self.vehicle.rect.colliderect(self.enemies[i]):
-                    self.settings.health -= 100
+                    self.settings.health -= self.enemies[i].damage
                     if self.settings.health > 0:
+                        self.enemies[i].damage = 0
                         self.vehicle.play_hurt_sound()
                     else:
                         self.vehicle.play_dead_sound()
-                    return
 
         if (len(self.obstacles) > 0):
             for i in self.obstacles.copy():
