@@ -74,31 +74,25 @@ class Vehicle(pygame.sprite.Sprite):
         
         self.settings = Goat_Upgrader.settings
         self.screen = Goat_Upgrader.screen
-        self.health = self.settings.health
 
         self.initialize_fuel()
-        self.update_fuel()
 
 
     def initialize_fuel(self):
         
-        #initial health bar
+        #initial fuel bar
         self.height1 = 50
-        self.width1 = (self.fuel * 5)
+        self.width1 = (self.fuel * 2)
         self.FB_rect = pygame.Rect(50, self.settings.height - 50, self.width1, self.height1)
         self.FBcolor = (230, 210, 115)
         self.FB_rect.bottomleft = (50, self.settings.height - 50)
 
         #back of health bar (black bar)
         self.height2 = 60
-        self.width2 = 260
-        self.BG_rect = pygame.Rect(45,self.settings.height - 45, self.width2, self.height2)
+        self.width2 = 1010
+        self.BG_rect = pygame.Rect(45, self.settings.height - 45, self.width2, self.height2)
         self.BGcolor = (0, 0, 0)
-        self.BG_rect.bottomleft = (45, 45)
-
-        #initial print of healthbar
-        pygame.draw.rect(self.screen, self.BGcolor, self.BG_rect)
-        pygame.draw.rect(self.screen, self.FBcolor, self.FB_rect)
+        self.BG_rect.bottomleft = (45, self.settings.height - 45)
 
     def update_fuel(self):
         self.initialize_fuel()
