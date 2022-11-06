@@ -175,6 +175,7 @@ class JimRs_Garage:
                     self.settings.coin_count += 1
                     self.score.coin_score += 50
                     self.coins.remove(i)
+                    pygame.mixer.Sound.play(pygame.mixer.Sound("sounds/coin.ogg"))
 
     def get_input(self):
         
