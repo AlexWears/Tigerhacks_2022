@@ -15,7 +15,7 @@ class Vehicle(pygame.sprite.Sprite):
         self.scale_i = 1
         self.fly_i = 0
         self.fuel = 0
-        self.fly_choice = 0
+        self.fly_choice = False
         
         self.rect = self.image.get_rect()
 
@@ -50,10 +50,10 @@ class Vehicle(pygame.sprite.Sprite):
         self.dead_sound = pygame.mixer.Sound("sounds/goatdead.ogg")
         pygame.mixer.Sound.play(self.dead_sound)
 
-    def fly(self, shadow, image):
+    def fly(self, image, shadow):
         if(self.settings.v_type != 4 and self.settings.v_type != 5):
             return
-        if(self.fuel > 0 and self.fly_choice == 1):
+        if(self.fuel > 0 and self.fly_choice):
             if self.scale_i < 20:
                 self.image = pygame.transform.scale(self.image, (116*self.scale_i,116*self.scale_i))
                 self.scale_i += 1
@@ -67,7 +67,7 @@ class Vehicle(pygame.sprite.Sprite):
                 self.image = image
                 self.fly_i = 0
                 self.scale_i = 1
-                self.fly_choice = 0
+                self.fly_choice = False
         return
 
     def fuel_gauge(self, Goat_Upgrader):
