@@ -2,12 +2,12 @@ import pygame
 
 class Obstacle(pygame.sprite.Sprite):
 
-    def __init__(self, JimRs_Garage, image):
+    def __init__(self, Goat_Upgrader, image):
 
         super().__init__()
 
-        self.settings = JimRs_Garage.settings
-        self.screen = JimRs_Garage.screen
+        self.settings = Goat_Upgrader.settings
+        self.screen = Goat_Upgrader.screen
         self.speed = self.settings.env_speed
         self.image = pygame.image.load(image)
         self.rect = self.image.get_rect()

@@ -5,9 +5,9 @@ from vehicle import Vehicle
 
 class Goat(Vehicle):
 
-    def __init__(self, JimRs_Garage):
+    def __init__(self, Goat_Upgrader):
         
-        super().__init__(JimRs_Garage)
+        super().__init__(Goat_Upgrader)
         if self.settings.v_type == 1:
             self.image = pygame.image.load("sprites/fancyGoat.bmp")
         elif self.settings.v_type == 0:

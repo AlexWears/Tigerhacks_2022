@@ -7,14 +7,14 @@ from deso_price import DeSoPrice
 
 class Shop:
 
-    def __init__(self, JimRs_Garage):
+    def __init__(self, Goat_Upgrader):
         self.text_color = (0,0,0)
         self.button_color = (255,255,255)
         self.font = pygame.font.SysFont("Comic Sans MS", 30)
 
-        self.settings = JimRs_Garage.settings
-        self.screen = JimRs_Garage.screen
-        self.screen_rect = JimRs_Garage.screen
+        self.settings = Goat_Upgrader.settings
+        self.screen = Goat_Upgrader.screen
+        self.screen_rect = Goat_Upgrader.screen
         self.usd = self.settings.coin_count * self.settings.deso_conv
 
         self.deso = DeSoPrice(self)
@@ -128,7 +128,7 @@ class Shop:
         self.settings.moving_left = False
         self.settings.moving_right = False
 
-    def load(self, JimRs_Garage):
+    def load(self, Goat_Upgrader):
 
         pygame.mixer.init()
         pygame.mixer.music.load("sounds/shop_music.ogg")
@@ -175,7 +175,7 @@ class Shop:
                     self._check_car_button(mouse_pos)
                     self._check_plane_button(mouse_pos)
                     self._check_rocket_button(mouse_pos)
-                    JimRs_Garage.start_music()
+                    Goat_Upgrader.start_music()
                     return
                 
                 elif event.type == pygame.QUIT:
@@ -187,7 +187,7 @@ class Shop:
                         self.settings.v_type = 0
                         self.settings.health = 150
                         self._reset_directions()
-                        JimRs_Garage.start_music()
+                        Goat_Upgrader.start_music()
                         return
                     elif key == pygame.K_c:
                         print(str(self.coins))
@@ -196,7 +196,7 @@ class Shop:
                         self.settings.v_type = 1
                         self.settings.health = 150
                         self._reset_directions()
-                        JimRs_Garage.start_music()
+                        Goat_Upgrader.start_music()
                         return 
 
             pygame.display.flip()

@@ -4,13 +4,13 @@ import random
 
 class Grass(pygame.sprite.Sprite):
 
-    def __init__(self, JimRs_Garage):
+    def __init__(self, Goat_Upgrader):
 
         super().__init__()
 
-        self.settings = JimRs_Garage.settings
-        self.screen = JimRs_Garage.screen
-        self.screen_rect = JimRs_Garage.screen.get_rect()
+        self.settings = Goat_Upgrader.settings
+        self.screen = Goat_Upgrader.screen
+        self.screen_rect = Goat_Upgrader.screen.get_rect()
 
         self.image = pygame.image.load("sprites/Grass.bmp")
         self.rect = self.image.get_rect()
@@ -32,13 +32,13 @@ class Grass(pygame.sprite.Sprite):
 
 class Flower(pygame.sprite.Sprite):
 
-    def __init__(self, JimRs_Garage):
+    def __init__(self, Goat_Upgrader):
 
         super().__init__()
 
-        self.settings = JimRs_Garage.settings
-        self.screen = JimRs_Garage.screen
-        self.screen_rect = JimRs_Garage.screen.get_rect()
+        self.settings = Goat_Upgrader.settings
+        self.screen = Goat_Upgrader.screen
+        self.screen_rect = Goat_Upgrader.screen.get_rect()
 
         self.image = pygame.image.load("sprites/YellowFlower.bmp")
 

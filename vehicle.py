@@ -2,14 +2,14 @@ import sys
 import pygame
 from settings import Settings
 
-class Vehicle:
+class Vehicle(pygame.sprite.Sprite):
 
     pygame.mixer.init()
 
-    def __init__(self, JimRs_Garage):
-        self.settings = JimRs_Garage.settings
-        self.screen = JimRs_Garage.screen
-        self.screen_rect = JimRs_Garage.screen.get_rect()
+    def __init__(self, Goat_Upgrader):
+        self.settings = Goat_Upgrader.settings
+        self.screen = Goat_Upgrader.screen
+        self.screen_rect = Goat_Upgrader.screen.get_rect()
         self.image = pygame.image.load("sprites/thing.bmp")
         self.health = self.settings.health
         

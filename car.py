@@ -5,9 +5,9 @@ from vehicle import Vehicle
 
 class Car(Vehicle):
 
-    def __init__(self, JimRs_Garage):
+    def __init__(self, Goat_Upgrader):
 
-        super().__init__(JimRs_Garage)
+        super().__init__(Goat_Upgrader)
 
         self.image = pygame.image.load("sprites/car.bmp")
         self.rect = self.image.get_rect()
