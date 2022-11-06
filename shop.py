@@ -94,7 +94,7 @@ class Shop:
             else:
                 self.settings.v_type = 1
             self.settings.health = 150
-            self._reset_directions()
+            self._reset_stuff()
 
     #Check if car buy button was pressed
     def _check_car_button(self, mouse_pos):
@@ -106,7 +106,7 @@ class Shop:
             else:
                 self.settings.v_type = 1
             self.settings.health = 150
-            self._reset_directions()
+            self._reset_stuff()
 
     #Check if plane buy button was pressed
     def _check_plane_button(self, mouse_pos):
@@ -118,7 +118,7 @@ class Shop:
             else:
                 self.settings.v_type = 1
             self.settings.health = 150
-            self._reset_directions()
+            self._reset_stuff()
 
     #Check if rocket buy button was pressed
     def _check_rocket_button(self, mouse_pos):
@@ -130,13 +130,16 @@ class Shop:
             else:
                 self.settings.v_type = 1
             self.settings.health = 150
-            self._reset_directions()
+            self._reset_stuff()
 
-    def _reset_directions(self):
+    def _reset_stuff(self):
         self.settings.moving_up = False
         self.settings.moving_down = False
         self.settings.moving_left = False
         self.settings.moving_right = False
+        self.settings.obstacle_spawn_rate = self.settings.default_obstacle_spawn_rate
+        self.settings.coin_spawn_rate = self.settings.default_coin_spawn_rate
+        self.settings.env_speed = 5
 
     def load(self, Goat_Upgrader):
 
