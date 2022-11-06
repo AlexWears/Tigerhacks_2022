@@ -66,6 +66,10 @@ class Shop:
         self.rocket_price_rect.center = (800, 700)
         self.rocket_button = Button(self, "Buy", 30, self.text_color, 100, 50, self.button_color, 1000, 700)
 
+        self.death_recap = self.font.render("Click here for a death recap.", True, self.text_color)
+        self.dr_rect = self.death_recap.get_rect()
+        self.dr_rect.center = (self.settings.width/2, self.settings.height-30)
+
         self.coin_text = self.font.render(str(self.settings.coin_count)+" DeSo", True, self.text_color)
         self.coin_text_rect = self.coin_text.get_rect()
         self.coin_text_rect.topright = (self.settings.width - 15, 10)
@@ -160,6 +164,7 @@ class Shop:
 
             self.screen.blit(self.coin_text, self.coin_text_rect)
             self.screen.blit(self.usd_text, self.usd_text_rect)
+            self.screen.blit(self.death_recap, self.dr_rect)
 
             self.deso.update()
 
