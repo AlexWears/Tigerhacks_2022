@@ -29,5 +29,5 @@ class Goat(Vehicle):
 
     def play_dead_sound(self):
 
-        self.dead_sound = pygame.mixer.Sound("sounds/goatdead.ogg")
+        self.dead_sound = pygame.mixer.Sound("sounds/jgoatdead.ogg")
         pygame.mixer.Sound.play(self.dead_sound)
