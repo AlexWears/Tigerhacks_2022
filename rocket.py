@@ -11,6 +11,7 @@ class Rocket(Vehicle):
 
         self.image = pygame.image.load("sprites/rocket.bmp")
         self.rect = self.image.get_rect()
+        self.rect.bottomleft = (self.settings.width/2,self.settings.height/2)
 
         self.settings.speed_vert = self.settings.rocket_speed_vert
         self.settings.speed_hor = self.settings.rocket_speed_hor

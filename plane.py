@@ -11,6 +11,7 @@ class Plane(Vehicle):
 
         self.image = pygame.image.load("sprites/plane.bmp")
         self.rect = self.image.get_rect()
+        self.rect.bottomleft = (self.settings.width/2,self.settings.height/2)
 
         self.settings.speed_vert = self.settings.plane_speed_vert
         self.settings.speed_hor = self.settings.plane_speed_hor

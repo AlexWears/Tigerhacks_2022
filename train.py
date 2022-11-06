@@ -11,6 +11,7 @@ class Train(Vehicle):
 
         self.image = pygame.image.load("sprites/train.bmp")
         self.rect = self.image.get_rect()
+        self.rect.bottomleft = (self.settings.width/2,self.settings.height/2)
 
         self.settings.speed_vert = self.settings.train_speed_vert
         self.settings.speed_hor = self.settings.train_speed_hor
