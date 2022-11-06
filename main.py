@@ -230,16 +230,20 @@ class JimRs_Garage:
         #Start menu
         self.draw()
         self.screen.fill((120,30,20))
-        self.main_image = pygame.image.load("sprites/titleScreen.bmp")
-        self.main_rect = self.main_image.get_rect()
-        self.main_rect.bottomleft = (self.settings.width/2,self.settings.height/2)
-        self.screen.blit(self.main_image, self.main_rect)
         self.start_button.draw_button()
         self.start_image = pygame.image.load("sprites/titleScreen.bmp")
         self.start_image_rect = self.start_image.get_rect()
         self.start_image_rect.bottomleft = (0,0)
         self.start_image_rect.center = self.screen.get_rect().center
         self.screen.blit(self.start_image, self.start_image_rect)
+
+        self.font = pygame.font.SysFont("Comic Sans MS", 30)
+        self.text_color = (0,0,0)
+        self.instructions = self.font.render("Press [Esc] to exit.", True, self.text_color)
+        self.inst_rect = self.instructions.get_rect()
+        self.inst_rect.center = (self.settings.width/2, self.settings.height-30)
+        self.screen.blit(self.instructions, self.inst_rect)
+
         pygame.display.update()
 
         while self.settings.game_start == False:
